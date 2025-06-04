@@ -1,0 +1,113 @@
+@define-color active #895770;
+@define-color bg #2a2827;
+@define-color fg #a5c2d1;
+
+* {
+	font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK JP";
+	font-size: 16px;
+	margin: 0.1px 0.5px 0.1px 0.5px;
+}
+
+#window {
+	color: shade(@fg, 0.8);
+}
+
+window#waybar {
+	background: alpha(@bg, 0.7);
+	min-height: 10px;
+}
+
+#util,
+#privacy,
+#custom-color_picker,
+#custom-wlsunset,
+#clock,
+#idle_inhibitor,
+#cpu,
+#network,
+#bluetooth,
+#memory,
+#pulseaudio,
+#workspaces,
+#taskbar,
+#pfstats,
+#hwstats,
+#tray {
+	background: alpha(#000, 0.6);
+	border-radius: 8px;
+	padding: 2px 8px 2px 8px;
+	margin: 0px 2px 0px 2px;
+	color: shade(@fg, 0.8);
+}
+
+#workspaces button,
+#taskbar button {
+	padding: 0px 18px;
+	margin: 0px 2px 0px 2px;
+	border-radius: 4px;
+	color: shade(@fg, 0.8);
+}
+
+#workspaces button.active,
+#taskbar button.active {
+	background: shade(alpha(@fg, 0.2), 0.9);
+	color: shade(@fg, 0.9);
+	border-radius: 8px;
+	padding: 0px 18px;
+}
+
+#workspaces button.urgent {
+	text-decoration: underline;
+	font-weight: bold;
+	background-color: alpha(#ea6962, 0.5);
+	padding: 0px 18px;
+}
+
+#taskbar.empty {
+	background: transparent;
+}
+
+#pulseaudio {
+	padding: 0px 15px 0px 15px;
+	color: #bd6f3e;
+}
+
+#idle_inhibitor {
+	padding: 0px 12px;
+}
+#idle_inhibitor.activated {
+	background: shade(alpha(@fg, 0.2), 0.9);
+	font-weight: bold;
+}
+
+#custom-wlsunset {
+	padding: 0px 19px 0px 14px;
+}
+
+#clock {
+	padding: 0px 12px 0px 15px;
+	color: #d8a657;
+}
+
+#network {
+	color: #7daea3;
+}
+
+#memory {
+	color: #6578e6;
+}
+
+#cpu {
+	color: #d3869b;
+}
+
+#custom-color_picker {
+}
+
+#tray {
+	color: #fff;
+}
+
+#privacy {
+	color: #3c9598;
+}
