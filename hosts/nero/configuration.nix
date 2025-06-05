@@ -25,10 +25,10 @@ in {
   programs.hyprland.enable = true;
 
   programs.noisetorch.enable = true;
-  customModules = {
+  systemModules = {
     core.sound.enable = true;
-    programs.qemuAndVirtManager.enable = true;
-    programs.obs.virtualCam.enable = true;
+    extra.virtualisation.enable = true;
+    extra.virtualCam.enable = true;
   };
 
   virtualisation.containers.enable = true;

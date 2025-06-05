@@ -19,7 +19,7 @@ in {
     theme = lib.mkForce "breeze";
   };
   # programs.noisetorch.enable = true;
-  customModules = {
+  systemModules = {
     core.sound.enable = true;
   };
 
