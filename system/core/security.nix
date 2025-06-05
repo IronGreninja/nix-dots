@@ -8,10 +8,9 @@
 
   security = {
     # allow wayland lockers to unlock the screen
+    # TODO: these don't need to be set as default for all hosts.
+    # Move them to the host using them, or couple them with e.g. hyprland
     pam.services.swaylock.text = "auth include login";
     pam.services.hyprlock.text = "auth include login";
-
-    # needed for sound with pipewire
-    rtkit.enable = true;
   };
 }

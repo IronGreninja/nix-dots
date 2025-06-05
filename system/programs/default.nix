@@ -1,9 +1,10 @@
+## Programs & Services
 {
   imports = [
-    ./thunar.nix
-    ./virtualisation.nix
-    ./obsVirtualCam.nix
     ./nh.nix
+    ./samba.nix
+    ./ssh.nix
+    ./thunar.nix
   ];
 
   programs = {

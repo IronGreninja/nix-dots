@@ -12,13 +12,14 @@ in {
   networking.hostName = host;
 
   imports = [
-    ../hosts/${host}/hardware-configuration.nix
-    ../hosts/${host}/configuration.nix
     ./core
-    ./hardware
+    ./extra
     ./nix
     ./programs
-    ./services
+
+    # Load host specific config
+    ../hosts/${host}/hardware-configuration.nix
+    ../hosts/${host}/configuration.nix
   ];
 
   # Configure keymap in X11

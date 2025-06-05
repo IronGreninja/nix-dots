@@ -1,10 +1,10 @@
-Common configuration shared across hosts.
+## Common configuration shared across hosts.
 
-| Name          | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| `default.nix` | Entry point for all hosts                                 |
-| core          | Bootloader, display-manager, sound, network, security etc |
-| hardware      | Graphics drivers etc                                      |
-| nix           | Nix-related options                                       |
-| programs      | `programs.*` configuration and custom options             |
-| services      | `services.*` configurtaion                                |
+| Name | Description |
+| --- | --- |
+| `default.nix` | Entry point for all hosts |
+| `template.nix` | Example template on how custom modules for system are exposed |
+| `core/` | Core components: Bootloader, display-manager, sound, network, security etc |
+| `nix/` | Nix-related options |
+| `programs/` | Programs & Services |
+| `extra/` | Extra capabilites |

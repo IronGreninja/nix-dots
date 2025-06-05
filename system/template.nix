@@ -1,14 +1,14 @@
-## Example template for custom modules
+## Example template for custom system modules
 {
   pkgs,
   config,
   lib,
   ...
 }: let
-  cfg = config.customModules."category"."name";
+  cfg = config.systemModules."category"."name";
 in {
   options = {
-    customModules."category"."name".enable =
+    systemModules."category"."name".enable =
       lib.mkEnableOption "enables name";
   };
   config = lib.mkIf cfg.enable {

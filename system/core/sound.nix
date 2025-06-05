@@ -4,14 +4,14 @@
   config,
   ...
 }: let
-  cfg = config.customModules.core.sound;
+  cfg = config.systemModules.core.sound;
 in {
-  options.customModules.core.sound = {
+  options.systemModules.core.sound = {
     enable = lib.mkEnableOption "Enable sound with pipewire";
   };
   config = lib.mkIf cfg.enable {
     # Enable sound with pipewire.
-    # needs rtkit: enabled in ./security.nix
+    security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
       alsa.enable = true;

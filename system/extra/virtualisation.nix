@@ -7,10 +7,10 @@
   ...
 }:
 with lib; let
-  cfg = config.customModules.programs.qemuAndVirtManager;
+  cfg = config.systemModules.extra.virtualisation;
 in {
-  options.customModules.programs.qemuAndVirtManager = {
-    enable = mkEnableOption "Install qemu and virt-manager";
+  options.systemModules.extra.virtualisation = {
+    enable = mkEnableOption "virtualisation with qemu and virt-manager";
   };
 
   config = mkIf cfg.enable {
