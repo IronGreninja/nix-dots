@@ -18,10 +18,11 @@
     # ./gtk-qt.nix
     ./browsers
     ./anyrun #
-    ../hosts/${host}/home.nix
-
+    ./nixvim.nix
     ./stylua.nix
     ./ssh.nix
+
+    ../hosts/${host}/home.nix
   ];
 
   nixpkgs = {

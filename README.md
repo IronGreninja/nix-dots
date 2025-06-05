@@ -1,4 +1,4 @@
-# Structure
+## Structure
 
 | Path | Purpose |
 | --- | --- |

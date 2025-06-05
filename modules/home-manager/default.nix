@@ -5,6 +5,4 @@
   # my-module = import ./my-module.nix;
 
   hyprland-setup = import ./hyprland;
-
-  nixvim = import ./nixvim.nix;
 }
