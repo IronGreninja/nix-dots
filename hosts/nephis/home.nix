@@ -9,8 +9,8 @@
 in {
   imports = [
     # inputs.stylix.homeManagerModules.stylix
-    # outputs.homeManagerModules.hyprland-setup
-    outputs.homeManagerModules.nixvim
+    # outputs.homeModules.hyprland-setup
+    outputs.homeModules.nixvim
   ];
 
   programs = {

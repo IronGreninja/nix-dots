@@ -10,8 +10,8 @@
   opts = hostOptions;
 in {
   imports = [
-    outputs.homeManagerModules.hyprland-setup
-    outputs.homeManagerModules.nixvim
+    outputs.homeModules.hyprland-setup
+    outputs.homeModules.nixvim
     ./stylix.nix
 
     ./home/services/backup.nix
