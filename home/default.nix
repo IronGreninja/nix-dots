@@ -21,6 +21,7 @@
     ./nixvim.nix
     ./stylua.nix
     ./ssh.nix
+    ./stylix.nix
 
     ../hosts/${host}/home.nix
   ];

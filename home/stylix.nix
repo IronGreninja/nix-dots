@@ -5,15 +5,15 @@
   config,
   ...
 }: let
-  opts = hostOptions;
+  inherit (hostOptions) theme;
 in {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+  imports = [inputs.stylix.homeModules.stylix];
 
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${opts.theme}.yaml";
-    image = config.lib.stylix.pixel "base0A";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+    # image = config.lib.stylix.pixel "base0A"; # use base16Scheme
 
     fonts = {
       monospace = {
@@ -38,14 +38,5 @@ in {
       name = "Breeze_Light";
       size = 48;
     };
-  };
-  stylix.targets = {
-    kitty.enable = true;
-    vscode = {
-      enable = true;
-      profileNames = ["default"];
-    };
-    lazygit.enable = true;
-    # neovim.enable = true;
   };
 }

@@ -99,4 +99,9 @@ in
     };
 
     xdg.configFile."VSCodium/User/keybindings.json".source = config.lib.file.mkOutOfStoreSymlink "${vscDir}/keybindings.jsonc";
+
+    stylix.targets.vscode = {
+      enable = true;
+      profileNames = ["default"];
+    };
   }

@@ -26,4 +26,9 @@ in {
       active_tab_foreground #89b482
     '';
   };
+
+  stylix.targets.kitty = {
+    enable = true;
+    variant256Colors = true;
+  };
 }

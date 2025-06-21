@@ -6,5 +6,5 @@ rec {
   ###
 
   # Base16 theme
-  theme = "gruvbox-material-dark-hard";
+  theme = "horizon-dark";
 }

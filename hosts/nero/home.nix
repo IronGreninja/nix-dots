@@ -11,8 +11,6 @@
 in {
   imports = [
     outputs.homeModules.hyprland-setup
-    outputs.homeModules.nixvim
-    ./stylix.nix
 
     ./home/services/backup.nix
   ];
