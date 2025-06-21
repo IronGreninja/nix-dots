@@ -31,7 +31,10 @@ in
       };
     in
       mkIf (cfg.enable) {
-        home.packages = [Pkg];
+        home.packages =
+          if !config.stylix.targets.nixvim.enable
+          then [Pkg]
+          else [(Pkg.extend config.lib.stylix.nixvim.config)];
         home.sessionVariables = mkIf cfg.defaultEditor {EDITOR = "nvim";};
       };
   }
