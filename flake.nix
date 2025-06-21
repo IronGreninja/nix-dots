@@ -27,6 +27,7 @@
 
     nvim-dots = {
       url = "github:IronGreninja/nvim-dots";
+      # url = "git+file:///home/igreninja/nvim-dots";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
