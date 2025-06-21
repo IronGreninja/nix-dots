@@ -43,4 +43,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux"; # needed for flakes
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.opentabletdriver.enable = true;
 }

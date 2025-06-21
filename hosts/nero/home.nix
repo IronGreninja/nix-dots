@@ -87,6 +87,10 @@ in {
     xsettingsd
 
     prismlauncher
+
+    rnote
+    krita
+    xournalpp
   ];
 
   home.file = {};
