@@ -29,6 +29,8 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
+      outputs.overlays.additions
+      outputs.overlays.modifications
     ];
     config = {
       allowUnfree = true;
