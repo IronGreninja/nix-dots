@@ -35,7 +35,7 @@ in {
     ## commented packages have module that gets conditionally enabled with hyprland
     hyprsunset
     libsForQt5.qt5ct
-    qt6ct
+    kdePackages.qt6ct
     # kitty
     # waybar
     # swaylock # needs security.pam setup in OS

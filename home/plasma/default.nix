@@ -9,18 +9,27 @@
     # overrideConfig = true;
 
     fonts = let
-      forAllApplyTo = lib.genAttrs ["general" "small" "toolbar" "menu" "windowTitle"];
-    in
-      forAllApplyTo (applyTo: {
+      # forAllApplyTo = lib.genAttrs ["general" "small" "toolbar" "menu" "windowTitle"];
+      forAllApplyTo = lib.genAttrs ["general" "fixedWidth" "small" "toolbar" "menu" "windowTitle"];
+      all = forAllApplyTo (applyTo: {
         family = "Noto Sans";
-        pointSize = 14;
-      })
-      // {
-        fixedWidth = {
-          family = "Hack";
-          pointSize = 14;
-        };
+        pointSize = 16;
+      });
+    in
+      lib.recursiveUpdate all {
+        fixedWidth = {family = "Hack";};
+        small = {pointSize = 14;};
       };
+    # forAllApplyTo (applyTo: {
+    #   family = "Noto Sans";
+    #   pointSize = 16;
+    # })
+    # // {
+    #   fixedWidth = {
+    #     family = "Hack";
+    #     pointSize = 16;
+    #   };
+    # };
 
     workspace = {
       cursor = {

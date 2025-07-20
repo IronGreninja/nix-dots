@@ -36,7 +36,10 @@ in {
     enable = true;
     defaultNetwork.settings = {dns_enabled = true;};
   };
-  users.users.${username}.extraGroups = ["podman"];
+  users.users.${username} = {
+    extraGroups = ["podman"];
+    linger = true;
+  };
 
   programs.steam = {
     enable = true;
@@ -60,4 +63,7 @@ in {
   #   ];
   # };
   # networking.firewall.interfaces."wg_asterion".allowedTCPPorts = [9999];
+  networking.firewall.allowedTCPPorts = [
+    2283 # immich
+  ];
 }

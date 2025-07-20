@@ -15,6 +15,18 @@ in {
     ./home/services/backup.nix
   ];
 
+  # issue: obs screen capture source missing (kde)
+  # fix: https://github.com/NixOS/nixpkgs/issues/407809#issuecomment-2910213454
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-hyprland
+    ];
+    xdgOpenUsePortal = true;
+  };
+
   programs = {
     librewolf.enable = true;
     kitty.enable = true;
@@ -38,12 +50,14 @@ in {
 
     # kde
     kdePackages.plasma-vault
+    kdePackages.krecorder
+    plasma-panel-colorizer
     #
 
     calibre
     onlyoffice-bin_latest
     pdfarranger
-    gimp
+    gimp3
     oh-my-git
 
     # Backup

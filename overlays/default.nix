@@ -9,6 +9,17 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+
+    # fixed in nixpkgs
+    #   pdfarranger1_12_1 = prev.pdfarranger.overrideAttrs (oldAttrs: rec {
+    #     version = "1.12.1";
+    #     src = prev.fetchFromGitHub {
+    #       owner = oldAttrs.pname;
+    #       repo = oldAttrs.pname;
+    #       tag = version;
+    #       hash = "sha256-of1itPubf6LBJ4rSh1bca3yoNTiz5Qt9ar9XDe4nhxI=";
+    #     };
+    #   });
   };
 
   # stable nixpkgs set (declared in flake inputs)

@@ -31,6 +31,22 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/mnt/ext-hdd" = {
+    device = "/dev/disk/by-label/Backup";
+    fsType = "ext4";
+    options = ["auto" "nofail" "user"];
+  };
+
+  environment.etc."crypttab".text = ''
+    private_stash /dev/disk/by-uuid/89c1c461-917f-477d-b504-378357e3b07e none noauto
+  '';
+
+  fileSystems."/mnt/private" = {
+    device = "/dev/mapper/private_stash";
+    fsType = "ext4";
+    options = ["noauto"];
+  };
+
   swapDevices = [];
   zramSwap.enable = true;
 
