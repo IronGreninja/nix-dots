@@ -5,6 +5,7 @@
     ./samba.nix
     ./ssh.nix
     ./thunar.nix
+    ./hyprlock-pam.nix
   ];
 
   programs = {
