@@ -13,8 +13,8 @@
     ./vscopium #
     ./waybar #
     # ./zathura.nix
-    ./hyprland #
-    # ./mako.nix
+    ./hypr #
+    ./mako.nix
     # ./gtk-qt.nix
     ./browsers
     ./anyrun #
