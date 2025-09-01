@@ -1,15 +1,16 @@
-{pkgs, ...}: let
-in {
-  home.packages = with pkgs; [
-    pkgs.waybar
-    pulseaudio # gives pactl command
-    pavucontrol
-    # networkmanagerapplet # nm-connection-editor
-  ];
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./config.nix];
 
-  programs.waybar = {
-    style = ./style.css;
+  config = lib.mkIf (config.programs.waybar.enable) {
+    home.packages = with pkgs; [
+      pulseaudio # gives pactl command
+      pavucontrol
+      # networkmanagerapplet # nm-connection-editor
+    ];
   };
-
-  xdg.configFile."waybar/config".source = ./config;
 }

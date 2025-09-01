@@ -19,8 +19,9 @@ window#waybar {
 
 #util,
 #privacy,
-#custom-color_picker,
-#custom-wlsunset,
+#custom-hyprpicker,
+#custom-hyprsunset,
+#custom-clipse,
 #clock,
 #idle_inhibitor,
 #cpu,
@@ -80,7 +81,7 @@ window#waybar {
 	font-weight: bold;
 }
 
-#custom-wlsunset {
+#custom-hyprsunset {
 	padding: 0px 19px 0px 14px;
 }
 
@@ -101,7 +102,7 @@ window#waybar {
 	color: #d3869b;
 }
 
-#custom-color_picker {
+#custom-hyprpicker {
 }
 
 #tray {

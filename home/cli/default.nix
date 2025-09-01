@@ -98,7 +98,7 @@ in {
       '';
   in {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     autocd = true;
     defaultKeymap = "viins";
     history = {
