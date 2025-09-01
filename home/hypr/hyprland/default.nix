@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
 in {
   wayland.windowManager.hyprland = {
     xwayland.enable = true;
@@ -6,6 +11,9 @@ in {
     systemd.variables = ["--all"];
     settings = {
       "$mod" = "SUPER";
+
+      "$terminal" = "kitty";
+      "$menu" = "anyrun";
 
       env = [
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
@@ -19,8 +27,8 @@ in {
       ];
 
       exec-once = [
-        "hyprsunset"
-        "waybar"
+        "clipse -listen"
+        "mako"
       ];
     };
   };
@@ -29,33 +37,6 @@ in {
     ./general.nix
     ./binds.nix
     ./windowrules.nix
-  ];
-
-  home.packages = with pkgs; [
-    ## commented packages have module that gets conditionally enabled with hyprland
-    hyprsunset
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
-    # kitty
-    # waybar
-    # swaylock # needs security.pam setup in OS
-    # swayidle
-    # hyprpicker
-    # hyprpaper
-    # cliphist
-    # wl-clipboard
-    # wl-clip-persist
-    # wlsunset
-    # rofi-wayland
-    # mako
-    # wlogout
-
-    # basic utils
-    # qalculate-gtk
-    # mpv
-    # imv
-    # xfce.thunar # enabled in OS
-    # zathura
   ];
 
   ## XDG settings ##
