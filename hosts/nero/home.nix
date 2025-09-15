@@ -10,8 +10,6 @@
   opts = hostOptions;
 in {
   imports = [
-    outputs.homeModules.hyprland-setup
-
     ./home/services/backup.nix
   ];
 
@@ -19,11 +17,12 @@ in {
   # fix: https://github.com/NixOS/nixpkgs/issues/407809#issuecomment-2910213454
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      kdePackages.xdg-desktop-portal-kde
-      xdg-desktop-portal-hyprland
-    ];
+    extraPortals = with pkgs;
+      lib.mkForce [
+        # xdg-desktop-portal-gtk
+        kdePackages.xdg-desktop-portal-kde
+        xdg-desktop-portal-hyprland
+      ];
     xdgOpenUsePortal = true;
   };
 
@@ -50,10 +49,12 @@ in {
 
     # kde
     kdePackages.plasma-vault
+    kdePackages.konversation
     kdePackages.krecorder
-    plasma-panel-colorizer
+    # kdePackages.neochat # insecure dep
     #
 
+    code-cursor-fhs
     calibre
     onlyoffice-bin_latest
     pdfarranger
@@ -68,10 +69,9 @@ in {
 
     obsidian
 
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    osu-lazer-bin
 
-    libsForQt5.konversation
-    gnome-sound-recorder
     qalculate-qt
     mpv
 
@@ -80,7 +80,7 @@ in {
     ### Testing
     starship
 
-    mars-mips
+    # mars-mips
 
     # Gaming
     (lutris.override {
@@ -97,10 +97,10 @@ in {
     protonup-qt
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge # builds instead of using cache
     winetricks
-    xorg.xrdb # for steam
-    xsettingsd
+    # xorg.xrdb # for steam
+    # xsettingsd
 
-    prismlauncher
+    # prismlauncher
 
     rnote
     krita

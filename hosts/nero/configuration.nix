@@ -14,7 +14,6 @@ in {
     # ./system/services/samba.nix
   ];
 
-  # programs.hyprland.enable = true;
   services.xserver.enable = false;
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
@@ -54,6 +53,16 @@ in {
       bindAddress = "192.168.29.89";
       openFirewall = true;
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs;
+      lib.mkForce [
+        kdePackages.xdg-desktop-portal-kde
+        xdg-desktop-portal-hyprland
+      ];
+    xdgOpenUsePortal = true;
   };
   # programs.nix-ld = {
   #   enable = true;
