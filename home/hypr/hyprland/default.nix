@@ -29,6 +29,7 @@ in {
       exec-once = [
         "clipse -listen"
         "mako"
+        "hyprpaper"
       ];
     };
   };

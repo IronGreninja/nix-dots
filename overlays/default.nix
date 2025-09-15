@@ -20,6 +20,16 @@
     #       hash = "sha256-of1itPubf6LBJ4rSh1bca3yoNTiz5Qt9ar9XDe4nhxI=";
     #     };
     #   });
+    qt6ct-kde = let
+      patch = prev.fetchurl {
+        url = "https://aur.archlinux.org/cgit/aur.git/plain/qt6ct-shenanigans.patch?h=qt6ct-kde";
+        hash = "sha256-8PtmLV/sf1Uhqz5pQ+6uRzqcCQ7GpBipVkmlI1p9c6M=";
+      };
+    in
+      prev.kdePackages.qt6ct.overrideAttrs (oldAttrs: {
+        patches = [patch];
+        buildInputs = oldAttrs.buildInputs ++ [prev.kdePackages.qqc2-desktop-style];
+      });
   };
 
   # stable nixpkgs set (declared in flake inputs)

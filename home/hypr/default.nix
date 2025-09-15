@@ -41,11 +41,16 @@ in {
 
       hyprpicker # color-picker
       grimblast # screenshot
+      hyprpaper
       # wlogout
 
       # Qt theming
-      libsForQt5.qt5ct
-      kdePackages.qt6ct
+      # kdePackages.qt6ct
+      qt6ct-kde
+      kdePackages.qtstyleplugin-kvantum
+
+      # GTK theming
+      nwg-look
     ];
   };
 }

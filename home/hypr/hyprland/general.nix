@@ -21,7 +21,7 @@
     input = {
       kb_layout = "us";
       accel_profile = "flat";
-      follow_mouse = 2;
+      follow_mouse = 1;
       sensitivity = 0;
       float_switch_override_focus = 0;
       touchpad.natural_scroll = true;
@@ -38,9 +38,10 @@
       no_warps = true;
     };
 
-    # misc = {
-    #   disable_hyprland_logo = true;
-    #   force_default_wallpaper = 0;
-    # };
+    misc = {
+      disable_hyprland_logo = true;
+      disable_splash_rendering = true;
+      force_default_wallpaper = 0;
+    };
   };
 }
