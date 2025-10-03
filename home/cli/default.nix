@@ -61,7 +61,7 @@ in {
 
         # bindkey "$terminfo[kcuu1]" history-search-backward
         # bindkey "$terminfo[kcud1]" history-search-forward
-        bindkey "''${key[Up]}" fzf-history-widget
+        # bindkey "''${key[Up]}" fzf-history-widget # requires 2 clicks
       '';
 
     First =

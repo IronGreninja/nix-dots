@@ -30,6 +30,11 @@
       # url = "git+file:///home/igreninja/nvim-dots";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixCats = {
+      url = "github:IronGreninja/nvim-nixcats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

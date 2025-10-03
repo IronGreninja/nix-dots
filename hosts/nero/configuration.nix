@@ -55,15 +55,6 @@ in {
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs;
-      lib.mkForce [
-        kdePackages.xdg-desktop-portal-kde
-        xdg-desktop-portal-hyprland
-      ];
-    xdgOpenUsePortal = true;
-  };
   # programs.nix-ld = {
   #   enable = true;
   #   # https://www.reddit.com/r/NixOS/comments/1d1nd9l/walking_through_why_precompiled_hello_world/

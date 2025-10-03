@@ -48,9 +48,14 @@
     createDirectories = true;
   };
 
+  programs.nh = rec {
+    enable = true;
+    flake = flakeDir;
+  };
+
   ## Environment Variables ##
   home.sessionVariables = {
-    NH_FLAKE = flakeDir;
+    EDITOR = "nvim";
   };
 
   home.sessionPath = [

@@ -5,24 +5,29 @@
   pkgs,
   system,
   config,
+  lib,
   ...
 }: let
   opts = hostOptions;
 in {
   imports = [
     ./home/services/backup.nix
+    inputs.nixCats.homeModules.default
   ];
 
   # issue: obs screen capture source missing (kde)
   # fix: https://github.com/NixOS/nixpkgs/issues/407809#issuecomment-2910213454
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs;
-      lib.mkForce [
-        # xdg-desktop-portal-gtk
-        kdePackages.xdg-desktop-portal-kde
-        xdg-desktop-portal-hyprland
-      ];
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+    ];
+    config = {
+      hyprland = {
+        default = ["hyprland" "kde"];
+        "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+      };
+    };
     xdgOpenUsePortal = true;
   };
 
@@ -34,10 +39,16 @@ in {
     obs-studio.enable = true;
   };
 
+  # services.mako.enable = lib.mkForce false;
+
   homeSettings = {
     installFonts = true;
-    nixvim.enable = true;
-    hyprland.enable = true;
+    # nixvim.enable = true;
+    nvim = {
+      enable = true;
+      packageNames = ["nvim" "nvim-test"];
+    };
+    # hyprland.enable = true;
   };
 
   # nixpkgs.config.android_sdk.accept_license = true;
