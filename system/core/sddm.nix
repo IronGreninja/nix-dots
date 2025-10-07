@@ -12,10 +12,10 @@ in
       # theme = "breeze";
       theme = "sddm-astronaut-theme";
       settings = {
-        cursorTheme = {
-          name = "Breeze_snow"; # see https://wiki.archlinux.org/title/SDDM#Mouse_cursor
-          size = 48;
-        };
+        # https://wiki.archlinux.org/title/SDDM#Mouse_cursor # doesn't work
+        # FIXME: https://github.com/sddm/sddm/issues/1894
+        Theme.CursorTheme = "Breeze_Snow";
+        Theme.CursorSize = 48;
         # General.InputMethod = "qtvirtualkeyboard"; # Virtual kbd still doesn't work
       };
       autoNumlock = true;
@@ -27,13 +27,5 @@ in
         themeName = "jake_the_dog";
         themeConfig.General.FontSize = 20;
       })
-
-      # outputs.packages.${pkgs.system}.sddm-astronaut-theme
-      # vergilDark
-      # (pkgs.where-is-my-sddm-theme.override {
-      #   themeConfig.General = {
-      #     showSessionsByDefault = "true";
-      #   };
-      # })
     ];
   }
