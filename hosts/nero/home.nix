@@ -94,19 +94,20 @@ in {
     # mars-mips
 
     # Gaming
-    (lutris.override {
-      extraLibraries = pkgs: [
-        pkgs.curlWithGnuTls
-      ];
-      extraPkgs = pkgs: [
-        pkgs.curlWithGnuTls
-      ];
-    })
+    lutris
+    # (lutris.override {
+    #   extraLibraries = pkgs: [
+    #     pkgs.curlWithGnuTls
+    #   ];
+    #   extraPkgs = pkgs: [
+    #     pkgs.curlWithGnuTls
+    #   ];
+    # })
 
     mangohud
     goverlay
     protonup-qt
-    inputs.nix-gaming.packages.${pkgs.system}.wine-ge # builds instead of using cache
+    wineWowPackages.stable
     winetricks
     # xorg.xrdb # for steam
     # xsettingsd

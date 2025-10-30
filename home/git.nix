@@ -7,9 +7,31 @@
 in {
   programs.git = {
     enable = true;
-    userName = "IronGreninja";
-    userEmail = "92992745+IronGreninja@users.noreply.github.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "IronGreninja";
+        email = "92992745+IronGreninja@users.noreply.github.com";
+      };
+      alias = {
+        a = "add";
+        b = "branch";
+        c = "commit -v";
+        ca = "commit -v --amend";
+        cm = "commit -m";
+        co = "checkout";
+        d = "diff";
+        ds = "diff --staged";
+        p = "push";
+        pf = "push --force-with-lease";
+        pl = "pull";
+        l = "log";
+        r = "rebase";
+        s = "status --short";
+        ss = "status";
+        forgor = "commit --amend --no-edit";
+        graph = "log --all --decorate --graph --oneline";
+        # oops = "checkout --";
+      };
       init = {defaultBranch = "main";};
       color.ui = "auto";
       pull.rebase = "false";
@@ -22,26 +44,6 @@ in {
       };
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
-    };
-    aliases = {
-      a = "add";
-      b = "branch";
-      c = "commit -v";
-      ca = "commit -v --amend";
-      cm = "commit -m";
-      co = "checkout";
-      d = "diff";
-      ds = "diff --staged";
-      p = "push";
-      pf = "push --force-with-lease";
-      pl = "pull";
-      l = "log";
-      r = "rebase";
-      s = "status --short";
-      ss = "status";
-      forgor = "commit --amend --no-edit";
-      graph = "log --all --decorate --graph --oneline";
-      # oops = "checkout --";
     };
     ignores = [
       ".direnv"
