@@ -35,8 +35,15 @@ in {
     enable = true;
     defaultNetwork.settings = {dns_enabled = true;};
   };
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+    dumpcap.enable = true;
+  };
+
   users.users.${username} = {
-    extraGroups = ["podman"];
+    extraGroups = ["podman" "wireshark"];
     linger = true;
   };
 

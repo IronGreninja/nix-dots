@@ -36,6 +36,8 @@ in
 
         ov.jnoortheen.nix-ide
 
+        ov.golang.go
+
         # Utility
         ov.formulahendry.code-runner
         ov.mkhl.direnv

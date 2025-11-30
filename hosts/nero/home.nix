@@ -67,7 +67,7 @@ in {
 
     code-cursor-fhs
     calibre
-    onlyoffice-bin_latest
+    onlyoffice-desktopeditors
     pdfarranger
     gimp3
     oh-my-git

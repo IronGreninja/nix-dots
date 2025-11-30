@@ -8,5 +8,5 @@ with pkgs; [
   monaspace
 
   noto-fonts-cjk-sans
-  noto-fonts-emoji
+  noto-fonts-color-emoji
 ]
