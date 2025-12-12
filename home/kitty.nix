@@ -8,6 +8,9 @@ in {
     settings = {
       # confirm_os_window_close = 0;
     };
+    keybindings = {
+      "ctrl+shift+t" = "new_tab_with_cwd";
+    };
     extraConfig = lib.mkAfter ''
       #### After stylix
 

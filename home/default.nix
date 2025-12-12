@@ -22,6 +22,7 @@
     ./stylua.nix
     ./ssh.nix
     ./stylix.nix
+    ./niri
 
     ../hosts/${host}/home.nix
   ];

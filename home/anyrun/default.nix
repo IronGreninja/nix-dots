@@ -1,10 +1,11 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-lib.mkIf (config.wayland.windowManager.hyprland.enable) {
-  xdg.configFile."anyrun/config.ron".source = ./config.ron;
-  xdg.configFile."anyrun/style.css".source = ./style.css;
+{pkgs, ...}: {
+  programs.anyrun = {
+    config = {
+      plugins = [
+        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
+        "${pkgs.anyrun}/lib/librink.so"
+      ];
+    };
+  };
 }

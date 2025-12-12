@@ -19,12 +19,21 @@ in {
   ];
 
   config = lib.mkIf (cfg.enable) {
-    wayland.windowManager.hyprland.enable = true;
+    wayland.windowManager.hyprland = {
+      enable = true;
+      settings = {
+        "$mod" = "SUPER";
+
+        "$terminal" = "kitty";
+        "$menu" = "anyrun";
+      };
+    };
 
     programs = {
       kitty.enable = true;
       waybar.enable = true;
       hyprlock.enable = true;
+      anyrun.enable = true;
     };
 
     services = {
@@ -34,8 +43,6 @@ in {
     };
 
     home.packages = with pkgs; [
-      anyrun # launcher
-
       clipse # clipboard manager
       wl-clipboard
 

@@ -10,11 +10,6 @@ in {
     systemd.enable = true;
     systemd.variables = ["--all"];
     settings = {
-      "$mod" = "SUPER";
-
-      "$terminal" = "kitty";
-      "$menu" = "anyrun";
-
       env = [
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         "QT_QPA_PLATFORM, wayland;xcb"

@@ -16,8 +16,10 @@ in {
 
         modules-left = [
           "hyprland/workspaces"
+          "niri/workspaces"
           "wlr/taskbar"
           "hyprland/window"
+          "niri/window"
         ];
         modules-center = [
         ];
@@ -50,8 +52,21 @@ in {
           };
         };
 
+        "niri/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            urgent = "";
+            active = "";
+            empty = "";
+          };
+        };
+
         "hyprland/window" = {
           format = " {class}";
+        };
+
+        "niri/window" = {
+          format = " {app_id}";
         };
 
         idle_inhibitor = {
