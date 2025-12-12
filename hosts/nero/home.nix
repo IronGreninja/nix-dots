@@ -48,7 +48,7 @@ in {
       enable = true;
       packageNames = ["nvim" "nvim-test"];
     };
-    # hyprland.enable = true;
+    hyprland.enable = true;
   };
 
   # nixpkgs.config.android_sdk.accept_license = true;
