@@ -23,7 +23,7 @@ in
 
     environment.systemPackages = let
     in [
-      (outputs.packages.${pkgs.system}.sddm-astronaut-theme.override {
+      (outputs.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme.override {
         themeName = "jake_the_dog";
         themeConfig.General.FontSize = 20;
       })

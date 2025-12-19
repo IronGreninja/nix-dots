@@ -8,7 +8,7 @@
   lib,
   ...
 }: let
-  ext = inputs.nix-vscode-extensions.extensions.${pkgs.system};
+  ext = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
   ov = ext.open-vsx;
   # vm = ext.vscode-marketplace;
   vscDir = "${flakeDir}/home/vscopium";

@@ -17,7 +17,7 @@ in {
       device = "nodev";
       gfxmodeEfi = "1920x1080";
       useOSProber = true;
-      theme = "${outputs.packages.${pkgs.system}.grub-stylish-theme}/stylish";
+      theme = "${outputs.packages.${pkgs.stdenv.hostPlatform.system}.grub-stylish-theme}/stylish";
     };
   };
 }
