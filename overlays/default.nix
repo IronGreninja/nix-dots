@@ -21,9 +21,9 @@
     #     };
     #   });
     qt6ct-kde = let
-      patch = prev.fetchurl {
+      patch = prev.fetchpatch {
         url = "https://aur.archlinux.org/cgit/aur.git/plain/qt6ct-shenanigans.patch?h=qt6ct-kde";
-        hash = "sha256-8PtmLV/sf1Uhqz5pQ+6uRzqcCQ7GpBipVkmlI1p9c6M=";
+        sha256 = "1igxin99ia0a5c8j00d43gpvgkwygv2iphjxhw1bx52aqm3054sm"; # nix-prefetch-url
       };
     in
       prev.kdePackages.qt6ct.overrideAttrs (oldAttrs: {
