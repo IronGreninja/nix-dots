@@ -10,7 +10,7 @@ in {
   imports = [
     # inputs.stylix.homeManagerModules.stylix
     # outputs.homeModules.hyprland-setup
-    outputs.homeModules.nixvim
+    inputs.nixCats.homeModules.default
   ];
 
   programs = {
@@ -18,7 +18,7 @@ in {
   };
 
   homeSettings = {
-    nixvim.enable = true;
+    nvim.enable = true;
   };
 
   home.packages = with pkgs; [
