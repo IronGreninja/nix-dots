@@ -3,6 +3,7 @@
   features = "features='+ss02 +zero'";
 in {
   programs.kitty = {
+    enable = true;
     font.name = lib.mkForce "${fontname} style=ExtraLight ${features}";
     # shellIntegration.mode = "no-title"; # https://www.reddit.com/r/KittyTerminal/comments/1d1u05r/delay_setting_tab_title_instead_of_on_every/
     settings = {
@@ -28,10 +29,5 @@ in {
       tab_title_template "{sup.index} {title}"
       active_tab_foreground #89b482
     '';
-  };
-
-  stylix.targets.kitty = {
-    enable = true;
-    variant256Colors = true;
   };
 }

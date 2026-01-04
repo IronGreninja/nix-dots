@@ -1,54 +1,49 @@
 {
-  pkgs,
-  lib,
   config,
+  lib,
+  pkgs,
   ...
 }: let
 in {
+  imports = [
+    ./config.nix
+
+    ../hypridle.nix
+    ../hyprlock.nix
+    ../hyprsunset.nix
+
+    ../../kitty.nix
+    ../../anyrun
+    ../../waybar
+
+    ../../mako.nix
+  ];
+
   wayland.windowManager.hyprland = {
-    xwayland.enable = true;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
+    enable = true;
     settings = {
-      env = [
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "QT_QPA_PLATFORM, wayland;xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "QT_QPA_PLATFORMTHEME, qt6ct"
+      "$mod" = "SUPER";
 
-        "XCURSOR_THEME, Breeze_Light"
-        "XCURSOR_SIZE, 48"
-        "HYPRCURSOR_SIZE, 48"
-      ];
-
-      exec-once = [
-        "clipse -listen"
-        "mako"
-        "hyprpaper"
-      ];
+      "$terminal" = "kitty";
+      "$menu" = "anyrun";
     };
   };
 
-  imports = [
-    ./general.nix
-    ./binds.nix
-    ./windowrules.nix
-  ];
+  home.packages = with pkgs; [
+    clipse # clipboard manager
+    wl-clipboard
 
-  ## XDG settings ##
-  # xdg = {
-  #   mimeApps = {
-  #     enable = false;
-  #     defaultApplications = {
-  #       "inode/directory" = ["thunar.desktop"];
-  #       "text/plain" = ["nvim.desktop"];
-  #       "text/*" = ["nvim.desktop"];
-  #       "text/html" = ["nvim.desktop"];
-  #       "text/x-lua" = ["nvim.desktop"];
-  #       "application/pdf" = ["org.pwmt.zathura.desktop"];
-  #       "video/*" = ["mpv.desktop"];
-  #       #"image/*" = [ "" ];
-  #     };
-  #   };
-  # };
+    hyprpicker # color-picker
+    grimblast # screenshot
+    hyprpaper
+    # wlogout
+
+    # Qt theming
+    # kdePackages.qt6ct
+    qt6ct-kde
+    kdePackages.qtstyleplugin-kvantum
+
+    # GTK theming
+    nwg-look
+  ];
 }

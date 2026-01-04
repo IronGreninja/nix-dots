@@ -11,8 +11,19 @@
   opts = hostOptions;
 in {
   imports = [
-    ./home/services/backup.nix
-    inputs.nixCats.homeModules.default
+    ../../home/cli
+    ../../home/git.nix
+    ../../home/ssh.nix
+    ../../home/neovim.nix
+
+    ../../home/browsers/librewolf.nix
+    ../../home/vscopium
+    ../../home/kitty.nix
+    ../../home/gaming.nix
+
+    ../../home/fonts
+    ../../home/stylix.nix
+    ../../home/kdeplasma
   ];
 
   # issue: obs screen capture source missing (kde)
@@ -32,23 +43,12 @@ in {
   # };
 
   programs = {
-    librewolf.enable = true;
-    kitty.enable = true;
-    zellij.enable = true;
-    vscode.enable = true;
     vesktop.enable = true;
     obs-studio.enable = true;
   };
 
-  # services.mako.enable = lib.mkForce false;
-
   homeSettings = {
-    installFonts = true;
-    # nixvim.enable = true;
-    nvim = {
-      enable = true;
-      packageNames = ["nvim" "nvim-test"];
-    };
+    nvim.packageNames = ["nvim-test"];
     # hyprland.enable = true;
   };
 
@@ -94,27 +94,6 @@ in {
     starship
 
     # mars-mips
-
-    # Gaming
-    lutris
-    # (lutris.override {
-    #   extraLibraries = pkgs: [
-    #     pkgs.curlWithGnuTls
-    #   ];
-    #   extraPkgs = pkgs: [
-    #     pkgs.curlWithGnuTls
-    #   ];
-    # })
-
-    mangohud
-    goverlay
-    protonup-qt
-    wineWowPackages.stable
-    winetricks
-    # xorg.xrdb # for steam
-    # xsettingsd
-
-    # prismlauncher
 
     rnote
     krita

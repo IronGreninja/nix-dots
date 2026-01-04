@@ -51,5 +51,5 @@ in {
     ];
   };
   home.packages = with pkgs; [delta];
-  programs.lazygit.enable = true;
+  # programs.lazygit.enable = true;
 }

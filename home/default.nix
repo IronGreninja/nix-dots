@@ -6,24 +6,6 @@
   ...
 }: {
   imports = [
-    ./git.nix #
-    ./kitty.nix #
-    ./fonts #
-    ./cli
-    ./vscopium #
-    ./waybar #
-    # ./zathura.nix
-    ./hypr #
-    ./mako.nix
-    # ./gtk-qt.nix
-    ./browsers
-    ./anyrun #
-    ./nixvim.nix
-    ./stylua.nix
-    ./ssh.nix
-    ./stylix.nix
-    ./niri
-
     ../hosts/${host}/home.nix
   ];
 
@@ -46,17 +28,16 @@
   xdg.userDirs = {
     # for $XDG_*_DIR
     enable = true;
-    createDirectories = true;
+    # createDirectories = true;
   };
 
-  programs.nh = rec {
+  programs.nh = {
     enable = true;
     flake = flakeDir;
   };
 
   ## Environment Variables ##
   home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   home.sessionPath = [

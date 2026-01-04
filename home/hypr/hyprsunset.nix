@@ -1,5 +1,6 @@
 {
   services.hyprsunset = {
+    enable = true;
     systemdTarget = "hyprland-session.target";
     settings = {
       profile = [

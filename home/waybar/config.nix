@@ -1,6 +1,7 @@
 {pkgs, ...}: let
 in {
   programs.waybar = {
+    enable = true;
     style = ./style.css;
     systemd = {
       enable = true;

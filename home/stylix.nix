@@ -38,5 +38,18 @@ in {
       name = "Breeze_Light";
       size = 48;
     };
+    targets = {
+      bat.enable = true;
+      fzf.enable = true;
+      kitty = {
+        enable = true;
+        variant256Colors = true;
+      };
+      vscode = {
+        enable = true;
+        profileNames = ["default"];
+      };
+      kde.enable = true;
+    };
   };
 }

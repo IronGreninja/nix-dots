@@ -1,5 +1,6 @@
 {
   services.hypridle = {
+    enable = true;
     systemdTarget = "hyprland-session.target";
     settings = {
       general = {

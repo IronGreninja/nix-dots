@@ -6,6 +6,7 @@
 }: let
 in {
   services.mako = with config.lib.stylix.colors; {
+    enable = true;
     settings = {
       font = "'JetBrainsMono Nerd Font' Normal 17";
       background-color = "#${base01}";

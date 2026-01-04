@@ -1,18 +1,10 @@
 {
   pkgs,
   config,
-  lib,
   ...
-}:
-with lib; let
-  cfg = config.homeSettings.installFonts;
-in {
-  options.homeSettings.installFonts = mkEnableOption "Install personal assortment of fonts";
-
-  config = mkIf cfg {
-    home.packages = import ./fonts.nix pkgs;
-    fonts.fontconfig.enable = true; # enable discovery of fonts installed with home.packages
-  };
+}: {
+  home.packages = import ./fonts.nix pkgs;
+  fonts.fontconfig.enable = true; # enable discovery of fonts installed with home.packages
 }
 # 'Nerd Font' vs 'Nerd Font Mono': https://github.com/matthewjberger/scoop-nerd-fonts/issues/205
 # If a symbol(character/codepoint) is not provided by a font,
