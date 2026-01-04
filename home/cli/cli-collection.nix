@@ -8,6 +8,7 @@
     htop
     btop
     unzip
+    unrar # rar support in ark
     rsync
     trash-cli
 

@@ -21,14 +21,14 @@ in {
     enable = true;
     wayland.enable = true;
   };
-  programs.hyprland.enable = true;
-  programs.niri.enable = true;
+  # programs.hyprland.enable = true;
+  # programs.niri.enable = true;
 
-  programs.noisetorch.enable = true;
+  # programs.noisetorch.enable = true;
   systemModules = {
     core.sound.enable = true;
     extra.virtualisation.enable = true;
-    extra.virtualCam.enable = true;
+    # extra.virtualCam.enable = true;
   };
 
   virtualisation.containers.enable = true;
@@ -56,11 +56,11 @@ in {
   programs.gamescope.enable = true;
 
   services = {
-    nix-serve = {
-      enable = true;
-      bindAddress = "192.168.29.89";
-      openFirewall = true;
-    };
+    # nix-serve = {
+    #   enable = true;
+    #   bindAddress = "192.168.29.89";
+    #   openFirewall = true;
+    # };
   };
 
   # programs.nix-ld = {

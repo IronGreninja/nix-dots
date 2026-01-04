@@ -17,25 +17,26 @@ in {
 
   # issue: obs screen capture source missing (kde)
   # fix: https://github.com/NixOS/nixpkgs/issues/407809#issuecomment-2910213454
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
-    ];
-    config = {
-      hyprland = {
-        default = ["hyprland" "kde"];
-        "org.freedesktop.impl.portal.FileChooser" = ["kde"];
-      };
-    };
-    xdgOpenUsePortal = true;
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+  #     kdePackages.xdg-desktop-portal-kde
+  #   ];
+  #   config = {
+  #     hyprland = {
+  #       default = ["hyprland" "kde"];
+  #       "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+  #     };
+  #   };
+  #   xdgOpenUsePortal = true;
+  # };
 
   programs = {
     librewolf.enable = true;
     kitty.enable = true;
     zellij.enable = true;
     vscode.enable = true;
+    vesktop.enable = true;
     obs-studio.enable = true;
   };
 
@@ -48,7 +49,7 @@ in {
       enable = true;
       packageNames = ["nvim" "nvim-test"];
     };
-    hyprland.enable = true;
+    # hyprland.enable = true;
   };
 
   # nixpkgs.config.android_sdk.accept_license = true;
@@ -62,6 +63,7 @@ in {
     kdePackages.plasma-vault
     kdePackages.konversation
     kdePackages.krecorder
+    # kdePackages.kamoso # camera app
     # kdePackages.neochat # insecure dep
     #
 
