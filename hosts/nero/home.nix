@@ -92,12 +92,15 @@ in {
 
     ### Testing
     starship
+    ungoogled-chromium
 
     # mars-mips
 
     rnote
     krita
     xournalpp
+
+    qpwgraph
   ];
 
   home.file = {};
@@ -106,5 +109,6 @@ in {
   services.syncthing = {
     enable = true;
   };
+  services.easyeffects.enable = true;
   # programs.gpg.enable = true;
 }

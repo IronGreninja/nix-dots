@@ -49,7 +49,7 @@ in {
         enable = true;
         profileNames = ["default"];
       };
-      kde.enable = true;
+      # kde.enable = true;
     };
   };
 }

@@ -1,7 +1,6 @@
 ## Programs & Services
 {
   imports = [
-    ./nh.nix
     ./samba.nix
     ./ssh.nix
     ./thunar.nix
