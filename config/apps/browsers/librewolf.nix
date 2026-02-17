@@ -1,0 +1,17 @@
+{
+  ig.apps._.browser._.librewolf.homeManager = {pkgs, ...}: {
+    programs.librewolf = {
+      enable = true;
+      settings = {
+        "identity.fxaccounts.enabled" = true;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.downloads" = false;
+        "middlemouse.paste" = false;
+        "general.autoScroll" = true;
+
+        "widget.use-xdg-desktop-portal.file-picker" = 1; # use kde file-picker
+      };
+      nativeMessagingHosts = [pkgs.kdePackages.plasma-browser-integration];
+    };
+  };
+}
