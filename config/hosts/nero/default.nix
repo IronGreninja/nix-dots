@@ -10,6 +10,7 @@ in {
     includes = [
       <ig/system/desktop>
       <ig/de/plasma>
+      <ig/apps/wireshark>
     ];
 
     nixos = {pkgs, ...}: {

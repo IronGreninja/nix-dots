@@ -21,7 +21,7 @@ in {
       openssh.authorizedKeys.keys = [
       ];
       extraGroups = [
-        # "wireshark"
+        "wireshark"
       ];
     };
   };
