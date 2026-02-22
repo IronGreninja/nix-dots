@@ -11,6 +11,8 @@ in {
       <ig/system/desktop>
       <ig/de/plasma>
       <ig/apps/wireshark>
+      <ig/apps/obs-studio>
+      <ig/apps/vscopium>
     ];
 
     nixos = {pkgs, ...}: {

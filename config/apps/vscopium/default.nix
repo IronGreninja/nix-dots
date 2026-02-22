@@ -1,7 +1,7 @@
 {inputs, ...}: {
-  flake.modules.homeManager.vscopium = {
+  ig.apps._.vscopium.homeManager = {
     pkgs,
-    config,
+    lib,
     ...
   }: let
     ext = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
@@ -39,8 +39,8 @@
         ov.asvetliakov.vscode-neovim
         ov.jeanp413.open-remote-ssh
       ];
-      mutableExtensionsDir = false; # https://www.reddit.com/r/NixOS/comments/15mohek/installing_vscode_extensions_with_homemanager_not/
-      profiles.default.userSettings = rec {
+      mutableExtensionsDir = false;
+      profiles.default.userSettings = {
         "update.mode" = "none";
 
         "editor.wordWrap" = "on";
@@ -79,7 +79,7 @@
         "[nix]"."editor.tabSize" = 2;
         "nix.formatterPath" = "alejandra";
         "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
+        "nix.serverPath" = "${lib.getExe pkgs.nixd}";
         # FIXME:
         # "nix.serverSettings" = {
         #   "nixd" = {
@@ -91,7 +91,7 @@
         #   };
         # };
 
-        "Lua.misc.executablePath" = "${pkgs.lua-language-server}/bin/lua-language-server";
+        "Lua.misc.executablePath" = "${lib.getExe pkgs.lua-language-server}";
         "[lua]"."editor.tabSize" = 2;
       };
     };
