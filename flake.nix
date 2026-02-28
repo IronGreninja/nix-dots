@@ -39,14 +39,9 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # nvim-dots = {
-    #   url = "github:IronGreninja/nvim-dots";
-    #   # url = "git+file:///home/igreninja/nvim-dots";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    nixCats = {
-      url = "github:IronGreninja/nvim-nixcats";
+    nvim-config = {
+      url = "github:IronGreninja/nvim-config";
+      # url = "git+file:///home/igreninja/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

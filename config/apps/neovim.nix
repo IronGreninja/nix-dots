@@ -1,11 +1,9 @@
 {inputs, ...}: {
-  ig.apps._.editor._.neovim.homeManager = {
-    imports = [inputs.nixCats.homeModules.default];
-
-    homeSettings.nvim = {
-      enable = true;
-      packageNames = ["nvim"]; # "nvim-test"];
-    };
+  ig.apps._.editor._.neovim.homeManager = {pkgs, ...}: {
+    home.packages = with inputs.nvim-config.packages.${pkgs.stdenv.hostPlatform.system}; [
+      default
+      test
+    ];
     home.sessionVariables.EDITOR = "nvim";
   };
 }

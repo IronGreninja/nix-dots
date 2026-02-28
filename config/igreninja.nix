@@ -1,4 +1,5 @@
 {
+  inputs,
   __findFile,
   den,
   ...
@@ -17,11 +18,14 @@ in {
       <ig/fonts>
     ];
 
+    # user = {
     nixos.users.users.${N} = {
       openssh.authorizedKeys.keys = [
       ];
       extraGroups = [
         "wireshark"
+        "libvirtd"
+        "kvm"
       ];
     };
   };

@@ -13,6 +13,7 @@ in {
       <ig/apps/wireshark>
       <ig/apps/obs-studio>
       <ig/apps/vscopium>
+      <ig/virt/qemu>
     ];
 
     nixos = {pkgs, ...}: {
@@ -27,6 +28,7 @@ in {
 
       # nixpkgs.config.android_sdk.accept_license = true;
       home.packages = with pkgs; [
+        bottles
         libreoffice-qt6-fresh
         devenv
 
