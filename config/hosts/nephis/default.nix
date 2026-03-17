@@ -10,7 +10,7 @@ in {
   };
 
   den.aspects.${H} = {
-    provides.${mainUser}.includes = [
+    includes = [
       <ig/system/laptop>
       <ig/de/plasma>
     ];
@@ -24,11 +24,18 @@ in {
       programs.gamescope.enable = true;
     };
 
-    provides.${mainUser}.homeManager = {pkgs, ...}: {
-      # services.syncthing = {
-      #   enable = true;
-      # };
-      # programs.gpg.enable = true;
+    provides.${mainUser} = {
+      includes = [
+        <ig/system/laptop>
+        <ig/de/plasma>
+      ];
+
+      homeManager = {pkgs, ...}: {
+        # services.syncthing = {
+        #   enable = true;
+        # };
+        # programs.gpg.enable = true;
+      };
     };
   };
 }
