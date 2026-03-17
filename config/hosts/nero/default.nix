@@ -1,9 +1,12 @@
 {__findFile, ...}: let
   H = "nero";
+  mainUser = "igreninja";
 in {
   den.hosts.x86_64-linux.${H} = {
     type = "desktop";
     theme = "horizon-dark";
+
+    users.${mainUser} = {};
   };
 
   den.aspects.${H} = {
@@ -12,7 +15,7 @@ in {
       <ig/system/desktop>
     ];
 
-    provides.igreninja.includes = [
+    provides.${mainUser}.includes = [
       # includes nixos + homeManager classes
       <ig/system/desktop>
       <ig/de/plasma>
@@ -26,7 +29,7 @@ in {
     nixos = {pkgs, ...}: {
     };
 
-    provides.igreninja.homeManager = {pkgs, ...}: {
+    provides.${mainUser}.homeManager = {pkgs, ...}: {
       programs = {
         vesktop.enable = true;
       };

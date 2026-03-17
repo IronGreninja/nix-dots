@@ -1,13 +1,16 @@
 {__findFile, ...}: let
   H = "nephis";
+  mainUser = "igreninja";
 in {
   den.hosts.x86_64-linux.${H} = {
     type = "laptop";
     theme = "gruvbox-material-dark-hard";
+
+    users.${mainUser} = {};
   };
 
   den.aspects.${H} = {
-    provides.igreninja.includes = [
+    provides.${mainUser}.includes = [
       <ig/system/laptop>
       <ig/de/plasma>
     ];
@@ -21,7 +24,7 @@ in {
       programs.gamescope.enable = true;
     };
 
-    provides.igreninja.homeManager = {pkgs, ...}: {
+    provides.${mainUser}.homeManager = {pkgs, ...}: {
       # services.syncthing = {
       #   enable = true;
       # };
