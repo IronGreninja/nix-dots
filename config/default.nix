@@ -1,13 +1,18 @@
-{__findFile, ...}: {
+{
+  __findFile,
+  lib,
+  den,
+  ...
+}: {
+  den.schema.user.classes = lib.mkDefault ["homeManager"];
+  den.ctx.user.includes = [<den/mutual-provider>];
+
   den.default = {
     includes = [
       <den/define-user>
-      <den/home-manager>
-      (
-        {host, ...}: {
-          ${host.class}.networking.hostName = host.name;
-        }
-      )
+      <den/hostname>
+      den.provides.inputs'
+      den.provides.self'
     ];
 
     nixos = {

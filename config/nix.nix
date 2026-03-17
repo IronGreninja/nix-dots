@@ -2,6 +2,7 @@
   inputs,
   self,
   lib,
+  den,
   ...
 }: let
   nixpkgs = {
@@ -39,15 +40,12 @@ in {
       };
 
       inherit nixpkgs;
-      # for hm as nixos module. use same nixpkgs instance as above
-      home-manager.useUserPackages = true;
-      home-manager.useGlobalPkgs = true;
     };
+  };
 
-    homeManager = {
-      # for hm as standalone
-      # doesn't work: disabled when using useGlobalPkgs
-      # inherit nixpkgs;
-    };
+  # use same nixpkgs instance as nixos when using hm as nixos module
+  den.ctx.hm-host.nixos.home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 }

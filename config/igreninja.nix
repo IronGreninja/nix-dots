@@ -5,10 +5,6 @@
   ...
 }: let
   N = "igreninja";
-  userCfg = {
-    git.name = "IronGreninja";
-    git.email = "92992745+IronGreninja@users.noreply.github.com";
-  };
 in {
   den.aspects.${N} = {
     includes = [
@@ -18,18 +14,18 @@ in {
       <ig/fonts>
     ];
 
-    # user = {
-    nixos.users.users.${N} = {
+    git.name = "IronGreninja";
+    git.email = "92992745+IronGreninja@users.noreply.github.com";
+
+    user = {
+      # nixos.users.users.${N} = {
       openssh.authorizedKeys.keys = [
       ];
       extraGroups = [
-        "wireshark"
-        "libvirtd"
-        "kvm"
       ];
     };
   };
 
-  den.hosts.x86_64-linux.nero.users.${N} = userCfg;
-  den.hosts.x86_64-linux.nephis.users.${N} = userCfg;
+  den.hosts.x86_64-linux.nero.users.${N} = {};
+  den.hosts.x86_64-linux.nephis.users.${N} = {};
 }

@@ -7,7 +7,7 @@ in {
   };
 
   den.aspects.${H} = {
-    includes = [
+    provides.igreninja.includes = [
       <ig/system/laptop>
       <ig/de/plasma>
     ];
@@ -21,7 +21,7 @@ in {
       programs.gamescope.enable = true;
     };
 
-    homeManager = {pkgs, ...}: {
+    provides.igreninja.homeManager = {pkgs, ...}: {
       # services.syncthing = {
       #   enable = true;
       # };

@@ -9,9 +9,6 @@
       programs.git = {
         enable = true;
         settings = {
-          user = {
-            inherit (user.git) name email;
-          };
           alias = {
             a = "add";
             b = "branch";

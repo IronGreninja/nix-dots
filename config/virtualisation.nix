@@ -1,6 +1,6 @@
 {
   ig.virt.provides = {
-    qemu = {
+    qemu = {user, ...}: {
       # https://discourse.nixos.org/t/virt-manager-cannot-find-virtiofsd/26752/2
       description = ''
         Requires-Groups: libvirtd, kvm
@@ -11,6 +11,7 @@
           qemu.vhostUserPackages = [pkgs.virtiofsd];
         };
         programs.virt-manager.enable = true;
+        users.users.${user.userName}.extraGroups = ["libvirtd" "kvm"];
       };
       homeManager = {
         # remove warning when starting virt-manager for the first time
@@ -23,7 +24,7 @@
       };
     };
 
-    podman = {
+    podman = {user, ...}: {
       description = ''
         Requires-Groups: podman
         Optional: users.users.<name>.linger
@@ -33,6 +34,10 @@
         virtualisation.podman = {
           enable = true;
           defaultNetwork.settings = {dns_enabled = true;};
+        };
+        users.users.${user.userName} = {
+          extraGroups = ["podman"];
+          linger = true;
         };
       };
     };

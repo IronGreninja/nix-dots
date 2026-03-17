@@ -8,23 +8,28 @@ in {
 
   den.aspects.${H} = {
     includes = [
+      # includes nixos classes only
+      <ig/system/desktop>
+    ];
+
+    provides.igreninja.includes = [
+      # includes nixos + homeManager classes
       <ig/system/desktop>
       <ig/de/plasma>
       <ig/apps/wireshark>
       <ig/apps/obs-studio>
       <ig/apps/vscopium>
-      <ig/virt/qemu>
+      # <ig/virt/qemu> # virt-secret-init-encryption.service failed to start
+      <ig/apps/waybar>
     ];
 
     nixos = {pkgs, ...}: {
     };
 
-    homeManager = {pkgs, ...}: {
+    provides.igreninja.homeManager = {pkgs, ...}: {
       programs = {
         vesktop.enable = true;
       };
-
-      # homeSettings.nvim.packageNames = ["nvim-test"];
 
       # nixpkgs.config.android_sdk.accept_license = true;
       home.packages = with pkgs; [
