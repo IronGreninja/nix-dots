@@ -24,6 +24,19 @@
   ig.boot._.graphical = {
     includes = [ig.boot];
     nixos = {pkgs, ...}: {
+      boot.loader.grub = {
+        gfxmodeEfi = "1920x1080";
+        useOSProber = true;
+        theme = let
+          p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
+        in "${p}/stylish";
+      };
+    };
+  };
+
+  ig.boot._.graphical._.plymouth = {
+    includes = [ig.boot._.graphical];
+    nixos = {pkgs, ...}: {
       boot = {
         plymouth = {
           enable = true;
@@ -43,13 +56,6 @@
           "systemd.show_status=auto"
         ];
         loader.timeout = lib.mkForce 0;
-        loader.grub = {
-          gfxmodeEfi = "1920x1080";
-          useOSProber = true;
-          theme = let
-            p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
-          in "${p}/stylish";
-        };
       };
     };
   };

@@ -17,11 +17,11 @@ in {
 
     nixos = {pkgs, ...}: {
       # programs.noisetorch.enable = true;
-      programs.steam = {
-        enable = true;
-      };
-      programs.gamemode.enable = true;
-      programs.gamescope.enable = true;
+      # programs.steam = {
+      #   enable = true;
+      # };
+      # programs.gamemode.enable = true;
+      # programs.gamescope.enable = true;
     };
 
     provides.${mainUser} = {

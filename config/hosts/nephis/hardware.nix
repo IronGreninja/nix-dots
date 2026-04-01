@@ -19,7 +19,7 @@
     hardware.graphics.enable = true;
     services.xserver.videoDrivers = ["nvidia" "modesetting"];
     hardware.nvidia = {
-      open = false;
+      open = true;
       modesetting.enable = true;
       nvidiaSettings = true;
       prime = {
@@ -30,13 +30,25 @@
       };
     };
     specialisation.prime-sync.configuration = {
-      system.nixos.tags = ["prime-sync-mode"];
+      system.nixos.tags = ["prime-sync"];
+      services.xserver.enable = lib.mkForce true; # sync mode only works on x11
       hardware.nvidia.prime = {
         offload = {
           enable = lib.mkForce false;
           enableOffloadCmd = lib.mkForce false;
         };
         sync.enable = lib.mkForce true;
+      };
+    };
+    specialisation.prime-reverse-sync.configuration = {
+      system.nixos.tags = ["reverse-sync"];
+      services.xserver.enable = lib.mkForce true; # reverse-sync mode only works on x11
+      hardware.nvidia.prime = {
+        offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+        reverseSync.enable = lib.mkForce true;
       };
     };
 
