@@ -9,6 +9,8 @@ in {
     users.${mainUser} = {};
   };
 
+  # den.homes.x86_64-linux."${mainUser}@${H}" = {}; # doesn't work, apps not getting enabled
+
   den.aspects.${H} = {
     includes = [
       # includes nixos classes only
@@ -17,6 +19,7 @@ in {
     ];
 
     nixos = {pkgs, ...}: {
+      services.flatpak.enable = true;
     };
 
     provides.${mainUser} = {
@@ -38,6 +41,7 @@ in {
 
         # nixpkgs.config.android_sdk.accept_license = true;
         home.packages = with pkgs; [
+          qt6ct-kde
           bottles
           # libreoffice-qt6-fresh
           devenv

@@ -43,7 +43,7 @@
         stateVersion = "23.11";
       };
       xdg.enable = true;
-      xdg.userDirs.enable = true;
+      # xdg.userDirs.enable = true;
     };
   };
 }
