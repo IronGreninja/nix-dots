@@ -31,7 +31,7 @@
           };
           init = {defaultBranch = "main";};
           color.ui = "auto";
-          pull.rebase = "false";
+          pull.rebase = "true";
 
           core.pager = "delta";
           interactive.diffFilter = "delta --color-only";

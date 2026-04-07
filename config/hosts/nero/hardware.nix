@@ -22,7 +22,7 @@
     fileSystems."/mnt/ext-hdd" = {
       device = "/dev/disk/by-label/Backup";
       fsType = "ext4";
-      options = ["auto" "nofail" "user"];
+      options = ["noauto" "nofail" "user" "x-systemd.automount"];
     };
 
     environment.etc."crypttab".text = ''

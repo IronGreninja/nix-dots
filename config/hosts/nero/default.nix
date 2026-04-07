@@ -81,6 +81,7 @@ in {
           ### Testing
           starship
           ungoogled-chromium
+          sioyek
 
           # mars-mips
 

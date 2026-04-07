@@ -31,6 +31,7 @@
       system.stateVersion = "23.11";
       time.timeZone = "Asia/Kolkata";
       zramSwap.enable = true;
+      hardware.enableRedistributableFirmware = true;
       hardware.cpu.intel.updateMicrocode = true;
     };
 
