@@ -1,0 +1,33 @@
+{
+  "pins": {
+    "grub2-themes": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vinceliuice",
+        "repo": "grub2-themes"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "2025-07-23",
+      "revision": "6c26f99622cb1c705b3fe2dbe1eb88521096b25a",
+      "url": "https://api.github.com/repos/vinceliuice/grub2-themes/tarball/refs/tags/2025-07-23",
+      "hash": "sha256-EJ1udnwKYgWeAJzncAccbLPtbSWiuIANryXTGI9nY6w="
+    },
+    "qt6ct-kde-patch": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://aur.archlinux.org/qt6ct-kde.git"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "09f1afb0a9f9c5a4b0b0f2c10dfd4d3298ba3cba",
+      "url": null,
+      "hash": "sha256-CRlWe9r33jAZ+3g34j1R4D6shp+Ba4hGRAa9Zo4H3vE="
+    }
+  },
+  "version": 7
+}

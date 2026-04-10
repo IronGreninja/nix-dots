@@ -1,7 +1,12 @@
 {
   description = "IronGreninja's NixOS and Home-Manager Flake";
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree [./config ./modules]);
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [(inputs.import-tree [./config ./pkgs])];
+      _module.args.npins = import ./npins;
+      perSystem = {pkgs, ...}: {formatter = pkgs.alejandra;};
+    };
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
