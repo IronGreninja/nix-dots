@@ -27,6 +27,32 @@
       "revision": "09f1afb0a9f9c5a4b0b0f2c10dfd4d3298ba3cba",
       "url": null,
       "hash": "sha256-CRlWe9r33jAZ+3g34j1R4D6shp+Ba4hGRAa9Zo4H3vE="
+    },
+    "qylock": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Darkkal44",
+        "repo": "qylock"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "d00df9fbe20de1f17a792c9d1acb34d8a70573ea",
+      "url": "https://github.com/Darkkal44/qylock/archive/d00df9fbe20de1f17a792c9d1acb34d8a70573ea.tar.gz",
+      "hash": "sha256-DHHQXBxz9bUS7kogFyFiXYRCK88VBduuJQlEUO+oTMI="
+    },
+    "sddm-astronaut-theme": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Keyitdev",
+        "repo": "sddm-astronaut-theme"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "d73842c761f7d7859f3bdd80e4360f09180fad41",
+      "url": "https://github.com/Keyitdev/sddm-astronaut-theme/archive/d73842c761f7d7859f3bdd80e4360f09180fad41.tar.gz",
+      "hash": "sha256-+94WVxOWfVhIEiVNWwnNBRmN+d1kbZCIF10Gjorea9M="
     }
   },
   "version": 7

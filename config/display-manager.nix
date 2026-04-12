@@ -2,8 +2,8 @@
   ig.display-manager._.sddm.nixos = {pkgs, ...}: let
     theme = withSystem pkgs.stdenv.hostPlatform.system (p:
       p.config.packages.sddm-astronaut-theme.override {
-        themeName = "jake_the_dog";
-        themeConfig.General.FontSize = 20;
+        themeName = "hyprland_kath";
+        themeConfig.FontSize = 16;
       });
   in {
     services.displayManager.sddm = {
