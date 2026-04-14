@@ -40,6 +40,7 @@
           linger = true;
         };
       };
+      homeManager.services.podman.enable = true;
     };
   };
 }

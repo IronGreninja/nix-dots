@@ -1,4 +1,8 @@
-{__findFile, ...}: let
+{
+  __findFile,
+  den,
+  ...
+}: let
   H = "nero";
   mainUser = "igreninja";
 in {
@@ -8,8 +12,6 @@ in {
 
     users.${mainUser} = {};
   };
-
-  # den.homes.x86_64-linux."${mainUser}@${H}" = {}; # doesn't work, apps not getting enabled
 
   den.aspects.${H} = {
     includes = [
@@ -41,7 +43,6 @@ in {
 
         # nixpkgs.config.android_sdk.accept_license = true;
         home.packages = with pkgs; [
-          qt6ct-kde
           bottles
           # libreoffice-qt6-fresh
           devenv

@@ -11,7 +11,6 @@
       allowUnfreePredicate = _: true;
       permittedInsecurePackages = [];
     };
-    overlays = with self.overlays; [modifications];
   };
 in {
   den.default = {

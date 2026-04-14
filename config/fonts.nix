@@ -1,6 +1,7 @@
 {ig, ...}: {
   ig.fonts.homeManager = {pkgs, ...}: {
-    fonts.fontconfig.enable = true; # enable discovery of fonts installed with home.packages
+    # https://discourse.nixos.org/t/unable-to-nixos-rebuild-after-changing-kde-settings-using-the-gui/41918/5
+    # fonts.fontconfig.enable = true; # enable discovery of fonts installed with home.packages
     home.packages = with pkgs; [
       # nerd-fonts.symbols-only
       nerd-fonts.hack
