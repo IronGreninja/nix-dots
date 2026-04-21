@@ -1,5 +1,5 @@
 {
-  ig.de._.plasma.homeManager = {
+  ig.de._.plasma._.manager.homeManager = {
     programs.plasma.panels = [
       {
         location = "bottom";

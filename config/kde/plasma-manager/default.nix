@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  ig.de._.plasma.homeManager = {lib, ...}: {
+  ig.de._.plasma._.manager.homeManager = {lib, ...}: {
     imports = [
       inputs.plasma-manager.homeModules.plasma-manager
     ];

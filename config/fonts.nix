@@ -3,12 +3,11 @@
     # https://discourse.nixos.org/t/unable-to-nixos-rebuild-after-changing-kde-settings-using-the-gui/41918/5
     # fonts.fontconfig.enable = true; # enable discovery of fonts installed with home.packages
     home.packages = with pkgs; [
-      # nerd-fonts.symbols-only
-      nerd-fonts.hack
-      nerd-fonts.fira-code
-      nerd-fonts.jetbrains-mono
+      # use kitty with nerdfont symbol map
+      nerd-fonts.symbols-only
+      jetbrains-mono
 
-      monaspace
+      # monaspace
 
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
