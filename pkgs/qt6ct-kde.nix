@@ -8,7 +8,8 @@
           inherit (pin) hash;
           rev = pin.revision;
         };
-      in [(patchRepo + "/qt6ct-shenanigans.patch")];
+      in
+        (oldAttrs.patches or []) ++ [(patchRepo + "/qt6ct-shenanigans.patch")];
       buildInputs = oldAttrs.buildInputs ++ [pkgs.kdePackages.qqc2-desktop-style];
     });
   };
