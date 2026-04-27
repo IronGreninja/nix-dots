@@ -17,16 +17,14 @@ in {
     includes = [
       # includes nixos + homeManager classes in aspects
       <ig/system/desktop>
-      <ig/de/plasma>
-      <ig/de/plasma/manager>
+      # <ig/de/plasma>
+      # <ig/de/plasma/manager>
+      <ig/wm/niri>
       <ig/stylix>
-      <ig/de/plasma>
       <ig/apps/wireshark>
       <ig/apps/obs-studio>
       <ig/apps/vscopium>
       # <ig/virt/qemu> # virt-secret-init-encryption.service failed to start
-      <ig/apps/waybar>
-      <ig/apps/kitty>
     ];
 
     nixos = {pkgs, ...}: {

@@ -1,0 +1,61 @@
+// setting platformtheme breaks noctalia & it fails to launch, so unset it
+spawn-sh-at-startup "QT_QPA_PLATFORMTHEME='' noctalia-shell"
+spawn-sh-at-startup "wl-paste --watch cliphist store &"
+
+// https://niri-wm.github.io/niri/Configuration%3A-Miscellaneous.html#environment
+// vars set here are inherited by apps launced by niri
+// but not by things launched by systemd, like for ex: file picker portal
+// to set them for both, put them in either:
+// - .config/environment.d/*.conf files (`man environment.d`)
+// - environment.sessionVariables (nixos)
+// - home.sessionVariables (hm)
+environment {}
+
+cursor {
+    xcursor-theme "Breeze_Light"
+    xcursor-size 48
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// Ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
+prefer-no-csd
+
+// You can change the path where screenshots are saved.
+// A ~ at the front will be expanded to the home directory.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+    // Uncomment to turn off all animations.
+    // off
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
+
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+}
+
+overview {
+  backdrop-color "#26233a"
+}
+
+include "input.kdl"
+include "layout.kdl"
+include "binds.kdl"
+include "win-rules.kdl"

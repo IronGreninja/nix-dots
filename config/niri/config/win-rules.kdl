@@ -1,0 +1,79 @@
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// enable rounded corners for all windows.
+window-rule {
+  geometry-corner-radius 20
+
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// browser full column size by default
+window-rule {
+    match app-id=r#"librewolf"#
+    default-column-width { proportion 1.0; }
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// filepicker = floating
+window-rule {
+    match app-id="org.freedesktop.impl.portal.desktop.kde"
+    default-column-width { proportion 0.5; }
+    default-window-height { proportion 0.8; }
+    open-floating true
+    open-fullscreen false
+}
+
+// block out password managers from screen capture.
+window-rule {
+    match app-id=r#"^org\.kde\.kwalletmanager"#
+    match app-id=r#"^org\.gnome\.seahorse\.Application"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Block out notifications from screen capture.
+layer-rule {
+    match namespace="notifications"
+
+    block-out-from "screen-capture"
+}
+
+// Indicate screencasted windows differently.
+window-rule {
+    match is-window-cast-target=true
+
+    border {
+        inactive-color "#7d0d2d"
+        // active-gradient from="#ffb703" to="#fb8500" angle=45 // live studio
+        active-gradient from="#ff99c8" to="#a393eb" angle=45 // cyber orchid
+        // active-gradient from="#ffadad" to="#ffd6a5" angle=45 // electric coral
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}

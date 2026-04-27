@@ -1,10 +1,9 @@
-{withSystem, ...}: {
+{getSystem, ...}: {
   ig.display-manager._.sddm.nixos = {pkgs, ...}: let
-    theme = withSystem pkgs.stdenv.hostPlatform.system (p:
-      p.config.packages.sddm-astronaut-theme.override {
-        themeName = "hyprland_kath";
-        themeConfig.FontSize = 16;
-      });
+    theme = (getSystem pkgs.stdenv.hostPlatform.system).packages.sddm-astronaut-theme.override {
+      themeName = "hyprland_kath";
+      themeConfig.FontSize = 16;
+    };
   in {
     services.displayManager.sddm = {
       enable = true;
@@ -23,5 +22,17 @@
     };
 
     environment.systemPackages = [theme];
+  };
+
+  ig.display-manager._.ly.nixos = {
+    services.displayManager.ly = {
+      enable = true;
+      x11Support = false;
+      settings = {
+        vi_mode = true;
+        vi_default_mode = "insert";
+        numlock = true;
+      };
+    };
   };
 }
