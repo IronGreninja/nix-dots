@@ -5,6 +5,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [(inputs.import-tree [./config ./pkgs])];
       _module.args.npins = import ./npins;
+      _module.args.flakeDir = "/home/igreninja/nix-dots";
       perSystem = {pkgs, ...}: {formatter = pkgs.alejandra;};
     };
 
@@ -29,7 +30,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -45,8 +46,13 @@
     };
 
     nvim-config = {
-      url = "github:IronGreninja/nvim-config";
-      # url = "git+file:///home/igreninja/nvim-config";
+      # url = "github:IronGreninja/nvim-config/minimax";
+      url = "git+file:///home/igreninja/nvim-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dolphin-overlay = {
+      url = "github:rumboon/dolphin-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
