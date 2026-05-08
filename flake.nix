@@ -16,7 +16,7 @@
     flake-aspects.url = "github:vic/flake-aspects";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -46,13 +46,18 @@
     };
 
     nvim-config = {
-      # url = "github:IronGreninja/nvim-config/minimax";
-      url = "git+file:///home/igreninja/nvim-config";
+      url = "github:IronGreninja/nvim-config";
+      # url = "git+file:///home/igreninja/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dolphin-overlay = {
       url = "github:rumboon/dolphin-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

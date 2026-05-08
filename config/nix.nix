@@ -4,17 +4,9 @@
   lib,
   den,
   ...
-}: let
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-      permittedInsecurePackages = [];
-    };
-  };
-in {
+}: {
   den.default = {
-    nixos = {
+    nixos = {pkgs, ...}: {
       nix = let
         flakeInputs = lib.filterAttrs (_: v: lib.isType "flake" v) inputs;
       in {
@@ -38,7 +30,23 @@ in {
         nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       };
 
-      inherit nixpkgs;
+      nixpkgs = {
+        config = {
+          allowUnfree = true;
+          # allowUnfreePredicate = _: true;
+          # permittedInsecurePackages = [];
+        };
+        overlays = [
+          (
+            final: prev: {
+              pkgsStable = import inputs.nixpkgs-stable {
+                system = pkgs.stdenv.hostPlatform.system;
+                config.allowUnfree = true;
+              };
+            }
+          )
+        ];
+      };
     };
   };
 

@@ -1,6 +1,7 @@
 {
   __findFile,
   den,
+  inputs,
   ...
 }: let
   H = "nero";
@@ -24,7 +25,7 @@ in {
       <ig/apps/wireshark>
       <ig/apps/obs-studio>
       <ig/apps/vscopium>
-      # <ig/virt/qemu> # virt-secret-init-encryption.service failed to start
+      <ig/virt/qemu>
     ];
 
     nixos = {pkgs, ...}: {
@@ -38,7 +39,8 @@ in {
 
       # nixpkgs.config.android_sdk.accept_license = true;
       home.packages = with pkgs; [
-        bottles
+        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+        pkgsStable.bottles # https://github.com/NixOS/nixpkgs/issues/514113 on unstable
         # libreoffice-qt6-fresh
         devenv
 

@@ -10,6 +10,8 @@
       kdePackages.qtsvg
 
       kdePackages.gwenview
+      kdePackages.kimageformats
+      kdePackages.qtimageformats
       kdePackages.okular
       kdePackages.ark
 
@@ -20,7 +22,12 @@
 
     services.udisks2.enable = true;
   };
+  # for working rightclick -> "open terminal here" / "open with nvim"
+  # home.file.".config/kdeglobals".text = ''
+  #   [General]
+  #   TerminalApplication=wezterm
+  # '';
 }
-# other solutions:
+# another guide:
 # https://www.reddit.com/r/niri/comments/1qcm5cd/not_really_a_guide_to_setup_dolphin_kde_file/
 

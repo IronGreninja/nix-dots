@@ -8,10 +8,10 @@
     ov = ext.open-vsx;
     vm = ext.vscode-marketplace;
   in {
-    programs.vscode = {
+    programs.vscodium = {
       enable = true;
       # package = pkgs.vscodium.fhsWithPackages (ps: with ps; []);
-      package = pkgs.vscodium;
+      # package = pkgs.vscodium;
 
       profiles.default.extensions = [
         # Look n Feel
