@@ -51,8 +51,12 @@
   };
 
   # use same nixpkgs instance as nixos when using hm as nixos module
-  den.ctx.hm-host.nixos.home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  den.schema.hm-host.includes = [
+    {
+      nixos.home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
+    }
+  ];
 }
