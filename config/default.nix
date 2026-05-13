@@ -5,7 +5,7 @@
   ...
 }: {
   den.schema.user.classes = lib.mkDefault ["homeManager"];
-  den.schema.user.includes = [<den/mutual-provider>];
+  den.ctx.user.includes = [<den/mutual-provider>];
 
   den.default = {
     includes = [

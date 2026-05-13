@@ -3,7 +3,7 @@
   __findFile,
   ...
 }: {
-  ig.podman = {
+  ig.podman = den.lib.parametric {
     includes = [<ig/virt/podman>];
   };
 }

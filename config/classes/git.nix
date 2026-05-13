@@ -16,5 +16,5 @@
       adaptArgs = lib.id;
     };
 in {
-  den.schema.user.includes = [gitClass];
+  den.ctx.user.includes = [gitClass];
 }
