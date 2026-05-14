@@ -7,7 +7,6 @@
 }: {
   ig.wm._.niri = {
     includes = [
-      <ig/display-manager/ly>
       <ig/apps/wezterm>
       <ig/apps/dolphin/outside-kde>
     ];

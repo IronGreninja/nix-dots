@@ -4,7 +4,24 @@
   lib,
   den,
   ...
-}: {
+}: let
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
+    overlays = [
+      (
+        final: _: {
+          pkgsStable = import inputs.nixpkgs-stable {
+            inherit (final.stdenv.hostPlatform) system;
+            config.allowUnfree = true;
+          };
+        }
+      )
+    ];
+  };
+in {
   den.default = {
     nixos = {pkgs, ...}: {
       nix = let
@@ -30,23 +47,7 @@
         nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       };
 
-      nixpkgs = {
-        config = {
-          allowUnfree = true;
-          # allowUnfreePredicate = _: true;
-          # permittedInsecurePackages = [];
-        };
-        overlays = [
-          (
-            final: prev: {
-              pkgsStable = import inputs.nixpkgs-stable {
-                system = pkgs.stdenv.hostPlatform.system;
-                config.allowUnfree = true;
-              };
-            }
-          )
-        ];
-      };
+      inherit nixpkgs;
     };
   };
 
@@ -55,4 +56,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
   };
+
+  # when using standalone
+  den.ctx.home.homeManager.nixpkgs = nixpkgs;
 }

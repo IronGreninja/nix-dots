@@ -4,7 +4,6 @@
   den,
   ...
 }: {
-  den.schema.user.classes = lib.mkDefault ["homeManager"];
   den.ctx.user.includes = [<den/mutual-provider>];
 
   den.default = {
@@ -36,7 +35,6 @@
     };
 
     homeManager = {
-      # programs.home-manager.enable = true; # no effect when using hm as nixos module
       systemd.user.startServices = "sd-switch";
       home = {
         sessionPath = ["$HOME/.local/bin"];

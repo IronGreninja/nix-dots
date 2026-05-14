@@ -4,22 +4,30 @@
   inputs,
   ...
 }: let
-  H = "nero";
-  mainUser = "igreninja";
+  Host = "nero";
+  User = "igreninja";
 in {
-  den.hosts.x86_64-linux.${H} = {
+  den.hosts.x86_64-linux.${Host} = {
     type = "desktop";
     theme = "horizon-dark";
 
-    users.${mainUser} = {};
+    users.${User} = {classes = ["homeManager"];};
   };
 
-  den.aspects.${H}.provides.${mainUser} = {
+  den.aspects.${Host} = {
     includes = [
-      # includes nixos + homeManager classes in aspects
-      <ig/system/desktop>
-      # <ig/de/plasma>
-      # <ig/de/plasma/manager>
+      <ig/system/desktop> # merges nixos class
+      <ig/display-manager/ly>
+    ];
+
+    nixos = {pkgs, ...}: {
+      services.flatpak.enable = true;
+    };
+  };
+
+  den.aspects.${User}.provides.${Host} = {
+    includes = [
+      <ig/system/desktop> # merges homeManager class
       <ig/wm/niri>
       <ig/stylix>
       <ig/apps/wireshark>
@@ -27,10 +35,6 @@ in {
       <ig/apps/vscopium>
       <ig/virt/qemu>
     ];
-
-    nixos = {pkgs, ...}: {
-      services.flatpak.enable = true;
-    };
 
     homeManager = {pkgs, ...}: {
       programs = {
