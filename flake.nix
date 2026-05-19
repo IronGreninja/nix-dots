@@ -52,12 +52,18 @@
     };
 
     dolphin-overlay = {
-      url = "github:rumboon/dolphin-overlay";
+      # url = "github:rumboon/dolphin-overlay"; # re-add when PR#5 is merged
+      url = "github:MattiDragon/dolphin-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
