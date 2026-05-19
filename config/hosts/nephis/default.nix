@@ -34,15 +34,12 @@ in {
     homeManager = {pkgs, ...}: {
       programs = {
         mangohud.enable = true;
-        lutris = {
-          enable = true;
-          package = pkgs.lutris-free;
-        };
       };
       home.packages = with pkgs; [
         wineWow64Packages.staging
         goverlay
         bottles
+        lutris-free
         heroic
         umu-launcher
         faugus-launcher
