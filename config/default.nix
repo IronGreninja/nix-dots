@@ -25,6 +25,12 @@
       };
       documentation.doc.enable = false;
       documentation.info.enable = false;
+      documentation.man = {
+        # https://github.com/NixOS/nixpkgs/issues/513348
+        # fixme: doesn't seem to work? remove when fixed upstream
+        man-db.enable = false;
+        mandoc.enable = true;
+      };
       i18n.defaultLocale = "en_US.UTF-8";
       services.dbus.implementation = "broker";
       system.stateVersion = "23.11";

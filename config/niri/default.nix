@@ -23,6 +23,7 @@
     }: {
       home.packages = with pkgs; [
         noctalia-shell
+        vicinae
 
         cliphist
         wl-clipboard

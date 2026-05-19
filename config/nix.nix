@@ -19,6 +19,13 @@
           };
         }
       )
+      # https://github.com/NixOS/nixpkgs/issues/513245
+      # fixme: remove when this is fixed upstream
+      (_: prev: {
+        openldap = prev.openldap.overrideAttrs {
+          doCheck = !prev.stdenv.hostPlatform.isi686;
+        };
+      })
     ];
   };
 in {

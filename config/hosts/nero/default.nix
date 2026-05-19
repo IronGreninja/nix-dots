@@ -21,6 +21,10 @@ in {
     ];
 
     nixos = {pkgs, ...}: {
+      imports = [
+        inputs.nix-index-database.nixosModules.default
+      ];
+      programs.command-not-found.enable = false;
       services.flatpak.enable = true;
     };
   };
@@ -36,15 +40,20 @@ in {
       <ig/virt/qemu>
     ];
 
-    homeManager = {pkgs, ...}: {
+    homeManager = {
+      pkgs,
+      inputs',
+      ...
+    }: {
       programs = {
         vesktop.enable = true;
       };
 
       # nixpkgs.config.android_sdk.accept_license = true;
       home.packages = with pkgs; [
-        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-        pkgsStable.bottles # https://github.com/NixOS/nixpkgs/issues/514113 on unstable
+        inputs'.zen-browser.packages.default
+        bottles
+        lutris-free
         # libreoffice-qt6-fresh
         devenv
 
