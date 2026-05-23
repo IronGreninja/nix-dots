@@ -3,7 +3,7 @@
   den,
   ...
 }: {
-  ig.shell._.zsh = den.lib.parametric {
+  ig.shell._.zsh = {
     includes = [
       (<den/user-shell> "zsh")
       <ig/shell>
