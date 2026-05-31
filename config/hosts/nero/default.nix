@@ -51,7 +51,7 @@ in {
 
       # nixpkgs.config.android_sdk.accept_license = true;
       home.packages = with pkgs; [
-        inputs'.zen-browser.packages.default
+        # inputs'.zen-browser.packages.default
         bottles
         lutris-free
         # libreoffice-qt6-fresh
