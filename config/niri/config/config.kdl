@@ -1,6 +1,6 @@
 // setting platformtheme breaks noctalia & it fails to launch, so unset it
-spawn-sh-at-startup "QT_QPA_PLATFORMTHEME='' noctalia-shell"
-spawn-sh-at-startup "wl-paste --watch cliphist store &"
+spawn-at-startup "env" "--unset=QT_QPA_PLATFORMTHEME" "noctalia-shell"
+spawn-at-startup "vicinae" "server"
 
 // https://niri-wm.github.io/niri/Configuration%3A-Miscellaneous.html#environment
 // vars set here are inherited by apps launced by niri

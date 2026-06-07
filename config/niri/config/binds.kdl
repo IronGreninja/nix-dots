@@ -16,7 +16,11 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-    Mod+Return hotkey-overlay-title="Application launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    //
+    // Launcher:
+    // Use vicinae by default(shortcut). Use noctalia launcher with button on bar
+    // Mod+Return hotkey-overlay-title="Application launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+Space repeat=false hotkey-overlay-title="Application launcher (vicinae)" { spawn "vicinae" "toggle"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.

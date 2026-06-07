@@ -25,13 +25,15 @@
         noctalia-shell
         vicinae
 
-        cliphist
-        wl-clipboard
+        # cliphist
+        # wl-clipboard
+        # use vicinae for clibboard
 
         (getSystem pkgs.stdenv.hostPlatform.system).packages.qt6ct-kde
         adw-gtk3
         nwg-look
         # sunsetr # night-light
+        # pwvucontrol
 
         seahorse
       ];
