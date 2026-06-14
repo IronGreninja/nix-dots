@@ -28,7 +28,7 @@ in {
     includes = [
       <ig/system/laptop>
       <ig/de/plasma>
-      <ig/stylix> # fixme: necessary becoz neovim module depends on it
+      # <ig/stylix>
     ];
 
     homeManager = {pkgs, ...}: {

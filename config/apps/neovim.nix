@@ -1,18 +1,22 @@
-{inputs, ...}: {
+{
   ig.apps._.editor._.neovim.homeManager = {
-    pkgs,
     lib,
     config,
+    inputs',
     ...
   }: let
+    stylixColors = config.lib.stylix.colors.withHashtag or null;
     palette =
-      lib.filterAttrs (
-        k: v: builtins.match "base0[0-9A-F]" k != null
-      )
-      config.lib.stylix.colors.withHashtag;
+      if stylixColors != null
+      then
+        lib.filterAttrs (
+          k: v: builtins.match "base0[0-9A-F]" k != null
+        )
+        stylixColors
+      else null;
     opts = {settings.base16palette = palette;};
   in {
-    home.packages = with inputs.nvim-config.packages.${pkgs.stdenv.hostPlatform.system}; [
+    home.packages = with inputs'.nvim-config.packages; [
       (default.wrap opts)
       (test.wrap opts)
     ];
