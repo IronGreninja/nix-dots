@@ -37,6 +37,7 @@ in {
       <ig/apps/wireshark>
       <ig/apps/obs-studio>
       <ig/apps/vscopium>
+      <ig/apps/sioyek>
       <ig/virt/qemu>
     ];
 
@@ -92,7 +93,6 @@ in {
         ### Testing
         starship
         ungoogled-chromium
-        sioyek
 
         # mars-mips
 
