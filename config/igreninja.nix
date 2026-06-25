@@ -14,8 +14,12 @@ in {
       <ig/fonts>
     ];
 
-    git.name = "IronGreninja";
-    git.email = "92992745+IronGreninja@users.noreply.github.com";
+    homeManager = {
+      programs.git.settings.user = {
+        name = "IronGreninja";
+        email = "92992745+IronGreninja@users.noreply.github.com";
+      };
+    };
 
     user = {
       # nixos.users.users.${N} = {

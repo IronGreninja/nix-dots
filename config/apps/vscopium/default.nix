@@ -7,6 +7,7 @@
     ext = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
     ov = ext.open-vsx;
     vm = ext.vscode-marketplace;
+    ve = pkgs.vscode-extensions;
   in {
     programs.vscodium = {
       enable = true;
@@ -15,29 +16,33 @@
 
       profiles.default.extensions = [
         # Look n Feel
-        ov.pkief.material-product-icons
-        ov.sainnhe.gruvbox-material
+        ve.pkief.material-product-icons
+        ve.pkief.material-icon-theme
+        # ov.sainnhe.gruvbox-material # deprecated
 
         # Language support
-        ov.ms-python.python
-        ov.ms-python.black-formatter
-        ov.ms-python.debugpy
-        ov.ms-pyright.pyright
+        ve.ms-python.python
+        # ov.ms-python.black-formatter
+        ve.charliermarsh.ruff
+        ve.ms-python.debugpy
+        ve.ms-pyright.pyright
 
-        ov.llvm-vs-code-extensions.vscode-clangd
-        ov.webfreak.debug
+        ve.llvm-vs-code-extensions.vscode-clangd
+        # ov.webfreak.debug
+        ve.vadimcn.vscode-lldb
+        ve.ms-vscode.cmake-tools
 
-        ov.sumneko.lua
+        ve.sumneko.lua
 
-        ov.jnoortheen.nix-ide
+        ve.jnoortheen.nix-ide
 
-        ov.golang.go
+        ve.golang.go
 
         # Utility
-        ov.formulahendry.code-runner
-        ov.mkhl.direnv
-        ov.asvetliakov.vscode-neovim
-        ov.jeanp413.open-remote-ssh
+        # ve.formulahendry.code-runner
+        ve.mkhl.direnv
+        ve.asvetliakov.vscode-neovim
+        # ve.jeanp413.open-remote-ssh
       ];
       mutableExtensionsDir = false;
       profiles.default.userSettings = {
@@ -51,6 +56,7 @@
         "editor.insertSpaces" = true;
 
         "workbench.iconTheme" = "material-icon-theme";
+        "workbench.productIconTheme" = "material-product-icons";
 
         # "window.zoomLevel" = 1.5;
         "window.commandCenter" = false;
@@ -61,7 +67,7 @@
         "code-runner.runInTerminal" = true;
         "code-runner.enableAppInsights" = false;
 
-        "vscode-neovim.neovimClean" = true;
+        # "vscode-neovim.neovimClean" = true;
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
@@ -71,7 +77,10 @@
           };
         };
 
-        "[python]"."defaultFormatter" = "ms-python.black-formatter";
+        "notebook.formatOnSave.enabled" = true;
+
+        "[python]"."defaultFormatter" = "charliermarsh.ruff";
+        "[python]"."editor.codeActionsOnSave"."source.organizeImports" = "explicit";
         "python.languageServer" = "None"; # use pyright instead of pylance
 
         "[c]"."defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";

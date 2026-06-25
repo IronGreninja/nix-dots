@@ -93,6 +93,7 @@ in {
         ### Testing
         starship
         ungoogled-chromium
+        quickshell
 
         # mars-mips
 

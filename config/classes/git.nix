@@ -7,7 +7,7 @@
     class,
     aspect-chain,
   }:
-    den._.forward {
+    den.batteries.forward {
       each = lib.singleton true;
       fromClass = _: "git";
       intoClass = _: "homeManager";
@@ -16,5 +16,6 @@
       adaptArgs = lib.id;
     };
 in {
-  den.schema.user.includes = [gitClass];
+  # fixme: this errors. read docs for proper usage
+  # den.schema.user.includes = [gitClass];
 }

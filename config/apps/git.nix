@@ -1,5 +1,5 @@
 {
-  ig.apps._.git = {user, ...}: {
+  ig.apps._.git = {
     homeManager = {
       pkgs,
       lib,
