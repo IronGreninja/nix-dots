@@ -45,6 +45,15 @@ in {
         registry = lib.mkForce (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs);
         # set the path for channels compat
         nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+        optimise = {
+          automatic = true;
+          dates = "weekly";
+        };
+        gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 30d";
+        };
       };
 
       inherit nixpkgs;

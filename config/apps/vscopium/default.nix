@@ -38,6 +38,9 @@
 
         ve.golang.go
 
+        ov.theqtcompany.qt-core
+        ov.theqtcompany.qt-qml
+
         # Utility
         # ve.formulahendry.code-runner
         ve.mkhl.direnv
@@ -102,6 +105,9 @@
 
         "Lua.misc.executablePath" = "${lib.getExe pkgs.lua-language-server}";
         "[lua]"."editor.tabSize" = 2;
+
+        "qt-qml.qmlls.customExePath" = "qmlls"; # from nix-shell
+        "qt-qml.qmlls.useQmlImportPathEnvVar" = true; # export req. vars in shellHook
       };
     };
 

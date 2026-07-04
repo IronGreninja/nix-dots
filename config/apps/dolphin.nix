@@ -6,16 +6,23 @@
     environment.systemPackages = with pkgs; [
       kdePackages.dolphin
 
-      kdePackages.kdegraphics-thumbnailers
+      # icons & file-previews
       kdePackages.qtsvg
-
-      kdePackages.gwenview
+      kdePackages.kdegraphics-thumbnailers
       kdePackages.kimageformats
       kdePackages.qtimageformats
+
+      kdePackages.gwenview
       kdePackages.okular
       kdePackages.ark
 
+      # fixme: this should allow mounting android w/ mtp. but doesn't work. alternative: manual mounting w/ jmtpfs. (see wiki.nixos on MTP)
+      kdePackages.kio
+      kdePackages.kio-fuse
+      kdePackages.kio-extras
+
       # https://discourse.nixos.org/t/dolphin-cannot-mount-external-encrypted-hard-drive/38943
+      # fixme: why download this just to use a file manager :(
       kdePackages.plasma-workspace
       kdePackages.kded
     ];
