@@ -19,10 +19,12 @@
     homeManager = {
       pkgs,
       config,
+      inputs',
       ...
     }: {
       home.packages = with pkgs; [
         noctalia-shell
+        inputs'.noctalia.packages.default
         vicinae
 
         # cliphist
