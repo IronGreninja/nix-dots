@@ -1,6 +1,7 @@
-// setting platformtheme breaks noctalia & it fails to launch, so unset it
-spawn-at-startup "env" "--unset=QT_QPA_PLATFORMTHEME" "noctalia-shell"
-spawn-at-startup "vicinae" "server"
+// setting platformtheme breaks noctalia v4 & it fails to launch, so unset it
+// spawn-at-startup "env" "--unset=QT_QPA_PLATFORMTHEME" "noctalia-shell"
+spawn-at-startup "noctalia"
+// spawn-at-startup "vicinae" "server"
 
 // https://niri-wm.github.io/niri/Configuration%3A-Miscellaneous.html#environment
 // vars set here are inherited by apps launced by niri
@@ -9,6 +10,7 @@ spawn-at-startup "vicinae" "server"
 // - .config/environment.d/*.conf files (`man environment.d`)
 // - environment.sessionVariables (nixos)
 // - home.sessionVariables (hm)
+// - systemd.user.sessionVariables (hm)
 environment {}
 
 cursor {

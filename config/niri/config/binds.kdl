@@ -18,9 +18,8 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     //
     // Launcher:
-    // Use vicinae by default(shortcut). Use noctalia launcher with button on bar
-    // Mod+Return hotkey-overlay-title="Application launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+Space repeat=false hotkey-overlay-title="Application launcher (vicinae)" { spawn "vicinae" "toggle"; }
+    Mod+Space repeat=false hotkey-overlay-title="Application launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    // Mod+Space repeat=false hotkey-overlay-title="Application launcher (vicinae)" { spawn "vicinae" "toggle"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -260,7 +259,7 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Ctrl+Alt+Delete { spawn-sh "noctalia msg panel-toggle session"; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
