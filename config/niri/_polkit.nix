@@ -1,3 +1,4 @@
+# use noctalia polkit
 {
   ig.wm._.niri.homeManager = {pkgs, ...}: {
     systemd.user.services.niri-wants-polkit = {
