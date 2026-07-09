@@ -1,0 +1,125 @@
+[plugins]
+    enabled = ["noctalia/bongocat", "noctalia/kaomoji"]
+
+[bar]
+    order = ["main"]
+
+    [bar.main]
+        start = ["launcher", "clock", "cat", "privacy", "lock_keys"]
+        center = ["screenshot", "workspaces"]
+        end = ["tray", "clipboard", "volume"]
+        capsule = true
+        margin_edge = 0
+        margin_ends = 0
+        position = "right"
+        radius_top_left = -17
+        radius_top_right = 0
+        radius_bottom_left = -17
+        radius_bottom_right = 0
+        scale = 1.20
+        thickness = 37
+        widget_spacing = 7
+
+[location]
+    auto_locate = true
+
+[nightlight]
+    enabled = true
+    force = true
+    temperature_night = 3900
+
+[shell]
+    polkit_agent = true        # disable kde polkit for it to work
+    screen_time_enabled = true
+    # clipboard_enabled = false # use vicinae
+    password_style = "random"
+    telemetry_enabled = true
+    ui_scale = 1.15
+
+    [shell.panel]
+        open_near_click_control_center = true
+        session_placement = "floating"
+        session_position = "center"
+
+    [shell.screenshot]
+        confirm_region = true
+        directory = "~/Pictures/Screenshots"
+
+[dock]
+    auto_hide = true
+    enabled = true
+    reserve_space = false
+    show_dots = true
+    launcher_position = "end"
+
+[control_center]
+    hidden_tabs = ["monitor", "power", "bluetooth"]
+
+[idle]
+    behavior_order = ["lock", "screen-off", "lock-and-suspend"]
+
+    [idle.behavior.lock]
+        action = "lock"
+        enabled = true
+        timeout = 420.0
+
+    [idle.behavior.lock-and-suspend]
+        action = "lock_and_suspend"
+        enabled = true
+        timeout = 600.0
+
+    [idle.behavior.screen-off]
+        action = "screen_off"
+        enabled = true
+        timeout = 480.0
+
+[theme]
+    mode = "dark"
+    builtin = "Kanagawa"
+    source = "wallpaper"
+    wallpaper_scheme = "muted"
+
+[wallpaper]
+    transition_on_startup = true
+
+[widget.cat]
+    type = "noctalia/bongocat:cat"
+    audio_spectrum = true
+    input_devices = [
+        "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:2.4:1.0-event-kbd",
+        "/dev/input/by-id/usb-Logitech_G102_LIGHTSYNC_Gaming_Mouse_206530665547-event-mouse",
+    ]
+    tappy_mode = true
+    # rave_mode = true
+
+[widget.launcher]
+    color = "secondary"
+
+[widget.clock]
+    vertical_format = "%H %M\\n-\\n%d %m"
+
+[widget.date]
+    vertical_format = "%d %m"
+
+[widget.lock_keys]
+    hide_when_off = true
+    show_num_lock = false
+    show_scroll_lock = true
+
+[widget.network]
+    show_label = false
+
+[widget.privacy]
+    hide_inactive = true
+
+[widget.volume]
+    show_label = false
+
+[widget.workspaces]
+    anchor = true
+
+[widget.vicinae]
+    color = "secondary"
+    command = "vicinae toggle"
+    glyph = "search"
+    type = "custom_button"

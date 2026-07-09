@@ -8,6 +8,7 @@
   ig.wm._.niri = {
     includes = [
       <ig/apps/wezterm>
+      <ig/apps/noctalia>
       <ig/apps/dolphin/outside-kde>
     ];
 
@@ -23,10 +24,6 @@
       ...
     }: {
       home.packages = with pkgs; [
-        noctalia-shell
-        inputs'.noctalia.packages.default
-        vicinae
-
         # cliphist
         # wl-clipboard
         # use vicinae for clibboard
