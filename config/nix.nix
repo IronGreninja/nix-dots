@@ -9,6 +9,7 @@
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
+      permittedInsecurePackages = ["electron-40.10.5"]; # obsidian
     };
     overlays = [
       (
