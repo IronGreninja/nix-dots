@@ -12,10 +12,11 @@
         margin_edge = 0
         margin_ends = 0
         position = "right"
-        radius_top_left = -17
+        radius_top_left = 17
         radius_top_right = 0
-        radius_bottom_left = -17
+        radius_bottom_left = 17
         radius_bottom_right = 0
+        concave_edge_corners = true
         scale = 1.20
         thickness = 37
         widget_spacing = 7
@@ -34,7 +35,6 @@
     # clipboard_enabled = false # use vicinae
     password_style = "random"
     telemetry_enabled = true
-    ui_scale = 1.15
 
     [shell.panel]
         open_near_click_control_center = true
@@ -44,6 +44,9 @@
     [shell.screenshot]
         confirm_region = true
         directory = "~/Pictures/Screenshots"
+
+[accessibility]
+    ui_scale = 1.15
 
 [dock]
     auto_hide = true
@@ -117,9 +120,3 @@
 
 [widget.workspaces]
     anchor = true
-
-[widget.vicinae]
-    color = "secondary"
-    command = "vicinae toggle"
-    glyph = "search"
-    type = "custom_button"
