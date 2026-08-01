@@ -15,7 +15,9 @@
     import-tree.url = "github:vic/import-tree";
     flake-aspects.url = "github:vic/flake-aspects";
 
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    # channel/release pinning (for when something breaks in latest):
+    # nixpkgs.url = "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1040357.e2587caef70c/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"; # always points to the latest release
     nixpkgs-stable.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
 
     home-manager = {
