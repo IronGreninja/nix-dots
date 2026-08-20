@@ -26,6 +26,7 @@ in {
       ];
       programs.command-not-found.enable = false;
       services.flatpak.enable = true;
+      programs.steam.enable = true;
     };
   };
 
@@ -39,6 +40,7 @@ in {
       <ig/apps/vscopium>
       <ig/apps/sioyek>
       <ig/virt/qemu>
+      <ig/virt/podman>
     ];
 
     homeManager = {
