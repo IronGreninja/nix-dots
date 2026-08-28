@@ -78,7 +78,8 @@ in {
 
         # Backup
         # restic
-        # autorestic
+        resticprofile
+        libsecret # secret-tool cmd needed for resticprofile repo pass retreival
         # rclone
         # exiftool
 
@@ -93,9 +94,7 @@ in {
         qbittorrent
 
         ### Testing
-        starship
         ungoogled-chromium
-        quickshell
 
         # mars-mips
 

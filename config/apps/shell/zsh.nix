@@ -135,6 +135,11 @@
           #   src = pkgs.zsh-autosuggestions;
           #   file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
           # }
+          {
+            name = "vi-mode";
+            src = pkgs.zsh-vi-mode;
+            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+          }
         ];
 
         initContent = lib.mkMerge [First BeforeCompInit AfterCompInit Last];
