@@ -41,6 +41,7 @@ in {
       <ig/apps/sioyek>
       <ig/virt/qemu>
       <ig/virt/podman>
+      <ig/qbittorrent-nox>
     ];
 
     homeManager = {
@@ -91,10 +92,11 @@ in {
         qalculate-qt
         mpv
 
-        qbittorrent
+        # qbittorrent
 
         ### Testing
         ungoogled-chromium
+        ferdium
 
         # mars-mips
 
