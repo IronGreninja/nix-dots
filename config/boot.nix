@@ -4,40 +4,33 @@
   ig,
   ...
 }: {
-  ig.boot.nixos = {pkgs, ...}: {
-    boot = {
-      loader = {
-        timeout = 5;
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
-        };
-        grub = {
-          enable = true;
-          efiSupport = true;
-          device = "nodev";
-        };
-      };
+  ig.boot.nixos.boot.loader = {
+    timeout = 5;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
     };
   };
 
-  ig.boot._.graphical = {
+  ig.boot._.grub = {
     includes = [ig.boot];
-    nixos = {pkgs, ...}: {
-      boot.loader.grub = {
-        gfxmodeEfi = "1920x1080";
-        useOSProber = true;
-        theme = let
-          p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
-        in "${p}/stylish";
-      };
+    nixos.boot.loader.grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
     };
   };
 
-  ig.boot._.graphical._.plymouth = {
-    includes = [ig.boot._.graphical];
+  ig.boot._.grub._.graphical = {
+    includes = [ig.boot._.grub];
     nixos = {pkgs, ...}: {
       boot = {
+        loader.grub = {
+          gfxmodeEfi = "1920x1080";
+          theme = let
+            p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
+          in "${p}/stylish";
+        };
         plymouth = {
           enable = true;
           theme = "black_hud";
@@ -57,6 +50,18 @@
         ];
         loader.timeout = lib.mkForce 0;
       };
+    };
+  };
+
+  ig.boot._.limine = {
+    includes = [ig.boot];
+    nixos = {pkgs, ...}: {
+      boot.loader.limine = {
+        enable = true;
+        # needs manual steps before enabling (https://wiki.nixos.org/wiki/Limine#Secure_Boot)
+        # secureBoot.enable = true;
+      };
+      environment.systemPackages = [pkgs.sbctl];
     };
   };
 }

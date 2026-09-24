@@ -11,6 +11,7 @@ in {
 
   den.aspects.${Host} = {
     includes = [
+      <ig/boot/grub/graphical>
       <ig/system/laptop>
       <ig/de/plasma>
     ];

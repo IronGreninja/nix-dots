@@ -16,6 +16,7 @@ in {
 
   den.aspects.${Host} = {
     includes = [
+      <ig/boot/grub/graphical>
       <ig/system/desktop> # merges nixos class
       <ig/display-manager/ly>
     ];
