@@ -14,23 +14,22 @@
 
   ig.boot._.grub = {
     includes = [ig.boot];
-    nixos.boot.loader.grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
+    nixos = {pkgs, ...}: {
+      boot.loader.grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        gfxmodeEfi = "1920x1080";
+        theme = let
+          p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
+        in "${p}/stylish";
+      };
     };
   };
 
-  ig.boot._.grub._.graphical = {
-    includes = [ig.boot._.grub];
+  ig.boot._.plymouth = {
     nixos = {pkgs, ...}: {
       boot = {
-        loader.grub = {
-          gfxmodeEfi = "1920x1080";
-          theme = let
-            p = (getSystem pkgs.stdenv.hostPlatform.system).packages.grub-stylish-theme;
-          in "${p}/stylish";
-        };
         plymouth = {
           enable = true;
           theme = "black_hud";
@@ -48,7 +47,6 @@
           "udev.log_level=3"
           "systemd.show_status=auto"
         ];
-        loader.timeout = lib.mkForce 0;
       };
     };
   };

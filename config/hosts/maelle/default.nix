@@ -16,6 +16,7 @@ in {
   den.aspects.${Host} = {
     includes = [
       <ig/boot/limine>
+      <ig/boot/plymouth>
       <ig/system/laptop>
       <ig/de/plasma>
     ];
@@ -38,6 +39,7 @@ in {
       home.packages = with pkgs; [
         calibre
         obsidian
+        haruna
       ];
       services.syncthing.enable = true;
     };
