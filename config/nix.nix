@@ -38,14 +38,14 @@ in {
           auto-optimise-store = true;
           builders-use-substitutes = true;
           trusted-users = ["root" "@wheel"];
+          # set the path for channels compat
+          nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
         };
         channel.enable = false;
         # registry.nixpkgs.flake = inputs.nixpkgs;
         # make flake registry and nix path match flake inputs:
         # pin the registry to avoid downloading and evaling a new nixpkgs version every time
         registry = lib.mkForce (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs);
-        # set the path for channels compat
-        nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
         optimise = {
           automatic = true;
           dates = "weekly";
