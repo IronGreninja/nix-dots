@@ -46,6 +46,9 @@
       };
     };
 
-    nixpkgs.hostPlatform = "x86_64-linux";
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
   };
 }

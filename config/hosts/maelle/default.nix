@@ -30,9 +30,11 @@ in {
       <ig/system/laptop>
       <ig/de/plasma>
       <ig/apps/browser/zen>
+      <ig/apps/easyeffects>
     ];
 
     nixos = {pkgs, ...}: {
+      programs.nix-ld.enable = true;
     };
 
     homeManager = {pkgs, ...}: {
